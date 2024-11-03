@@ -1,0 +1,664 @@
+/* General Styles */
+body {
+    background-color: #191414; /* Background color for dark mode */
+    color: #ffffff; /* Text color */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Header */
+header {
+    display: flex; /* Use flexbox for header layout */
+    justify-content: space-between; /* Space between title and nav */
+    align-items: center; /* Center items vertically */
+    padding: 20px; /* Padding around header */
+    border-bottom: 1px solid #333; /* Bottom border for separation */
+}
+
+.header-left h1 {
+    font-size: 24px; /* Title size */
+    font-weight: bold; /* Bold font */
+    color: #ff6b6b; /* Light red color */
+    margin: 0; /* Remove margin */
+}
+
+.header-right a {
+    margin-left: 20px; /* Space between navigation items */
+    color: #ffffff; /* Text color for links */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transition effects */
+}
+
+.header-right a:hover {
+    color: #ff6b6b; /* Change color on hover */
+    transform: scale(1.1); /* Slightly scale link on hover */
+}
+
+/* Profile Section Styles */
+.profile-section {
+    display: flex; /* Flexbox layout for profile section */
+    justify-content: space-between; /* Space between info and image */
+    padding: 50px; /* Padding around the section */
+}
+
+/* Profile Info Styles */
+.profile-info {
+    flex: 1; /* Take up equal space */
+    margin-right: 20px; /* Space between text and image */
+}
+
+.profile-info h2 {
+    color: #ff6b6b; /* Header color */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.profile-info p {
+    line-height: 2.4; /* Increase line spacing for better readability */
+}
+
+/* Profile Image Styles */
+.profile-image {
+    flex: 1; /* Take up equal space */
+    text-align: right; /* Align image to the right */
+}
+
+.profile-image img {
+    width: 400px; /* Set a specific width for the image (adjust as needed) */
+    height: 400px; /* Maintain aspect ratio */
+    border-radius: 20px; /* Keep the curved corners */
+    border: 2px solid #ff6b6b; /* Optional: Add border color matching the theme */
+}
+
+
+/* Main Section Styles */
+section {
+    padding: 50px; /* General section padding */
+}
+
+h2 {
+    color: #ff6b6b; /* Heading color */
+    margin-bottom: 10px; /* Space below headings */
+}
+
+/* Hover and Transition Effects */
+button, a {
+    transition: 0.3s ease-in-out; /* General transition for buttons and links */
+}
+
+button:hover, a:hover {
+    color: #ff6b6b; /* Change color on hover */
+}
+/* Education Section Styles */
+.education-section {
+    display: flex; /* Use flexbox for the section */
+    padding: 50px; /* Padding around the education section */
+}
+
+.education-container {
+    display: flex; /* Use flexbox for education items */
+    flex-direction: column; /* Stack items vertically */
+    flex: 1; /* Allow container to take available space */
+    gap: 20px; /* Space between items */
+    margin-right: 50px; /* Space between education items and details */
+}
+
+.education-item {
+    background-color: #2a2a2a; /* Background for education item */
+    padding: 20px; /* Padding inside education item */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transition effects */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.education-item h3 {
+    color: #ff6b6b; /* Heading color */
+    margin: 0; /* Remove default margin */
+}
+
+.education-item:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.5); /* Add shadow on hover */
+}
+
+.education-details {
+    flex: 1; /* Allow details section to take remaining space */
+    margin-top: 0; /* Remove top margin for alignment */
+    padding: 20px; /* Padding for the details section */
+    background-color: rgba(42, 42, 42, 0.8); /* Semi-transparent background for better visibility */
+    border-radius: 10px; /* Rounded corners */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+    color: #ffffff; /* Text color for details */
+    position: relative; /* For positioning of background image */
+    overflow: hidden; /* Hide overflow for clean edges */
+}
+/* Skills Section Styles */
+.skills-section {
+    padding: 50px; /* Padding around the skills section */
+}
+
+.skills-category {
+    margin-bottom: 40px; /* Space between skill categories */
+}
+
+.skills-container {
+    display: flex; /* Use flexbox for skills items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 20px; /* Space between items */
+}
+
+.skill-card {
+    background-color: #2a2a2a; /* Background for skill card */
+    padding: 20px; /* Padding inside skill card */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transition effects */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    flex: 1 1 calc(25% - 20px); /* Responsive width, adjust as necessary */
+    max-width: 200px; /* Max width for skill cards */
+}
+
+.skill-card h4 {
+    color: #ff6b6b; /* Heading color */
+    margin: 0; /* Remove default margin */
+}
+
+.skill-card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.5); /* Add shadow on hover */
+}
+
+/* Glow effect on hover */
+.skill-card.glow {
+    box-shadow: 0 0 15px rgba(255, 107, 107, 1), 0 0 30px rgba(255, 107, 107, 0.8);
+}
+
+.skill-details {
+    padding: 20px; /* Padding for the details section */
+    background-color: rgba(42, 42, 42, 0.8); /* Semi-transparent background for better visibility */
+    border-radius: 10px; /* Rounded corners */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+    color: #ffffff; /* Text color for details */
+}
+/* Projects Section Styles */
+.projects-section {
+    padding: 50px; /* Padding around the projects section */
+}
+
+.projects-container {
+    display: flex; /* Use flexbox for project items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 20px; /* Space between items */
+}
+
+.project-card {
+    background-color: #2a2a2a; /* Background for project card */
+    padding: 20px; /* Padding inside project card */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transition effects */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    flex: 1 1 calc(25% - 20px); /* Responsive width, adjust as necessary */
+    max-width: 300px; /* Max width for project cards */
+    text-align: center; /* Center text */
+}
+
+.project-image-container {
+    overflow: hidden; /* Ensure the image doesn't overflow the container */
+    border-radius: 10px; /* Rounded corners for the image */
+    margin-bottom: 10px; /* Space between image and title */
+}
+
+.project-image {
+    width: 100%; /* Full width for image */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease-in-out; /* Transition for image */
+}
+
+.project-image:hover {
+    transform: scale(1.1); /* Scale up on hover */
+    box-shadow: 0 0 15px rgba(255, 107, 107, 1); /* Glow effect on hover */
+}
+
+.project-card h3 {
+    color: #ff6b6b; /* Heading color */
+    margin: 0; /* Remove default margin */
+}
+
+.project-card p {
+    color: #ffffff; /* Text color */
+}
+
+.project-card a {
+    color: #ff6b6b; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.project-card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.5); /* Add shadow on hover */
+}
+
+/* Glow effect on hover */
+.project-card.glow {
+    box-shadow: 0 0 15px rgba(255, 107, 107, 1), 0 0 30px rgba(255, 107, 107, 0.8);
+}
+
+.project-details {
+    padding: 20px; /* Padding for the details section */
+    background-color: rgba(42, 42, 42, 0.8); /* Semi-transparent background for better visibility */
+    border-radius: 10px; /* Rounded corners */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+    color: #ffffff; /* Text color for details */
+}
+/* Existing Styles for Projects Section */
+
+.projects-section {
+    padding: 50px; /* Padding around the projects section */
+}
+
+.projects-container {
+    display: flex; /* Use flexbox for project items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 20px; /* Space between items */
+}
+
+.project-card {
+    background-color: #2a2a2a; /* Background for project card */
+    padding: 20px; /* Padding inside project card */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transition effects */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    flex: 1 1 calc(25% - 20px); /* Responsive width, adjust as necessary */
+    max-width: 300px; /* Max width for project cards */
+    text-align: center; /* Center text */
+}
+
+/* New Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .project-card {
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        flex: 1 1 100%; /* 1 card per row on small screens */
+        max-width: none; /* Remove max-width constraint */
+    }
+
+    .projects-section {
+        padding: 20px; /* Reduce padding on small screens */
+    }
+
+    .projects-container {
+        gap: 10px; /* Reduce gap between cards */
+    }
+}
+
+/* Existing Styles for Project Image, Glow, and Details remain unchanged */
+.project-image-container {
+    overflow: hidden; /* Ensure the image doesn't overflow the container */
+    border-radius: 10px; /* Rounded corners for the image */
+    margin-bottom: 10px; /* Space between image and title */
+}
+
+.project-image {
+    width: 100%; /* Full width for image */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease-in-out; /* Transition for image */
+}
+
+.project-image:hover {
+    transform: scale(1.1); /* Scale up on hover */
+    box-shadow: 0 0 15px rgba(255, 107, 107, 1); /* Glow effect on hover */
+}
+
+.project-card h3 {
+    color: #ff6b6b; /* Heading color */
+    margin: 0; /* Remove default margin */
+}
+
+.project-card p {
+    color: #ffffff; /* Text color */
+}
+
+.project-card a {
+    color: #ff6b6b; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.project-card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.5); /* Add shadow on hover */
+}
+
+/* Glow effect on hover */
+.project-card.glow {
+    box-shadow: 0 0 15px rgba(255, 107, 107, 1), 0 0 30px rgba(255, 107, 107, 0.8);
+}
+
+.project-details {
+    padding: 20px; /* Padding for the details section */
+    background-color: rgba(42, 42, 42, 0.8); /* Semi-transparent background for better visibility */
+    border-radius: 10px; /* Rounded corners */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+    color: #ffffff; /* Text color for details */
+}
+/* Project Details Section */
+.project-details-section {
+    padding: 40px;
+    color: #ffffff;
+    background-color: #1c1c1c;
+    text-align: left;
+}
+
+.project-details-section h2 {
+    color: #ff6b6b;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-description,
+.project-samples,
+.project-links {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.project-description h3,
+.project-samples h3,
+.project-links h3 {
+    color: #ff6b6b;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project-samples .sample-image {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-samples .sample-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
+}
+
+/* Project Links */
+.project-links a {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+    color: #ffffff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .project-content {
+        flex-direction: column;
+    }
+}
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    padding: 50px;
+    color: #ffffff;
+    background-color: #1c1c1c;
+}
+
+.contact-section h2 {
+    color: #ff6b6b;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* Contact Icons */
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #2a2a2a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-icon i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ff6b6b;
+}
+
+.contact-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
+}
+
+/* Custom Hover Colors */
+.gmail:hover i { color: #D44638; }      /* Gmail red */
+.linkedin:hover i { color: #0e76a8; }   /* LinkedIn blue */
+.instagram:hover i { color: #C13584; }  /* Instagram pink */
+.whatsapp:hover i { color: #25D366; }   /* WhatsApp green */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-icons {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background for the entire site */
+    color: #ffffff; /* Text color */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #121212; /* Dark background for header */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem; /* Adjusted font size for consistency */
+}
+
+.header-right {
+    display: flex;
+}
+
+.header-right a {
+    color: #ffffff; /* Link color */
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-right a:hover,
+.header-right a.active {
+    background-color: #b22222; /* Light red color for active and hover state */
+    color: #ffffff; /* Change text color on hover */
+}
+
+.certificates-section {
+    padding: 30px;
+}
+
+.certificates-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2 rem; /* Adjusted font size to match other headings */
+    font-weight: normal; /* Set to normal weight */
+    color: #b22222; /* Text color */
+}
+
+#certificates-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center cards */
+    gap: 20px; /* Gap between cards */
+}
+
+.certificate-card {
+    background-color: #242424; /* Dark card background */
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 250px; /* Set a fixed width for cards */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.certificate-card:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.certificate-image {
+    width: 100%; /* Responsive image width */
+    border-radius: 10px; /* Curved frame */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%; /* Maximum width for modal image */
+    height: auto;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #ffffff; /* Close button color */
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer; /* Change cursor to pointer */
+}
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background for the entire site */
+    color: #ffffff; /* Text color */
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #181818; /* Dark background for header */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Certificates Section */
+.certificates-section {
+    padding: 40px;
+}
+
+#certificates-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    justify-content: center; /* Center cards */
+    gap: 20px; /* Gap between cards */
+}
+
+/* Card Styles */
+.certificate-card {
+    background-color: #242424; /* Dark card background */
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 250px; /* Set a fixed width for cards */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack header items vertically on smaller screens */
+        align-items: flex-start; /* Align items to start */
+    }
+
+    .certificate-card {
+        width: 100%; /* Full width for cards on smaller screens */
+        max-width: 90%; /* Limit max width */
+    }
+
+    .certificates-section {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+
+    .certificates-section h2 {
+        font-size: 1.8rem; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem; /* Smaller font size for mobile */
+    }
+
+    .header-right a {
+        padding: 5px 10px; /* Reduce padding for mobile links */
+    }
+
+    .certificates-section h2 {
+        font-size: 1.5rem; /* Further reduce size for mobile */
+    }
+}
