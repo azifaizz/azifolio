@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Your Name</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <h1>Mohamed Aseel</h1>
+        </div>
+        <nav class="header-right">
+            <a href="index.html">Profile</a>
+            <a href="education.html">Education</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="certifications.html">Certifications</a>
+            <a href="contact.html">Contact</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2>Skills</h2>
+        
+        <div class="skills-category">
+            <h3>Hard Skills</h3>
+            <div class="skills-container">
+                <div class="skill-card" data-details="Proficient in HTML, CSS, SQL, and Python.">
+                    <h4>HTML</h4>
+                </div>
+                <div class="skill-card" data-details="Strong understanding of CSS for styling web pages.">
+                    <h4>CSS</h4>
+                </div>
+                <div class="skill-card" data-details="Experienced in SQL for database management.">
+                    <h4>SQL</h4>
+                </div>
+                <div class="skill-card" data-details="Skilled in Python for scripting and data analysis.">
+                    <h4>Python</h4>
+                </div>
+            </div>
+        </div>
+
+        <hr> <!-- Horizontal line to separate sections -->
+
+        <div class="skills-category">
+            <h3>Soft Skills</h3>
+            <div class="skills-container">
+                <div class="skill-card" data-details="Creative and innovative in designing solutions.">
+                    <h4>Designing</h4>
+                </div>
+                <div class="skill-card" data-details="Proficient in editing visual content.">
+                    <h4>Editing</h4>
+                </div>
+                <div class="skill-card" data-details="Experienced in photography and visual storytelling.">
+                    <h4>Photography</h4>
+                </div>
+                <div class="skill-card" data-details="Strong communication skills for effective collaboration.">
+                    <h4>Communication</h4>
+                </div>
+                <div class="skill-card" data-details="Adaptable to new situations and challenges.">
+                    <h4>Adaptability</h4>
+                </div>
+                <div class="skill-card" data-details="Excellent time management for meeting deadlines.">
+                    <h4>Time Management</h4>
+                </div>
+                <div class="skill-card" data-details="Ability to work well in teams and collaborate effectively.">
+                    <h4>Team Work & Collaboration</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-details" id="skill-details">
+            <p>Select a skill to view details...</p>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript to handle hover effect
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const details = card.getAttribute('data-details');
+                document.getElementById('skill-details').innerHTML = `<strong>Details:</strong> ${details}`;
+                card.classList.add('glow'); // Add glow effect on hover
+            });
+            card.addEventListener('mouseleave', () => {
+                document.getElementById('skill-details').innerHTML = 'Select a skill to view details...';
+                card.classList.remove('glow'); // Remove glow effect on leave
+            });
+        });
+    </script>
+</body>
+</html>
