@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Your Name</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <h1>Mohamed Aseel</h1>
+        </div>
+        <nav class="header-right">
+            <a href="index.html">Profile</a>
+            <a href="education.html">Education</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="certifications.html">Certifications</a>
+            <a href="contact.html">Contact</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <h2>Education</h2>
+        <div class="education-container">
+            <div class="education-item" data-details="I successfully completed my 10th grade at Islamic Model Matriculation Higher Secondary School, where I demonstrated a strong academic performance by achieving a score of 309 out of 500." data-image="assets\IMS.jpg">
+                <h3>10th Grade</h3>
+            </div>
+            <div class="education-item" data-details="I completed my 10th grade at St. Mary Goretty Higher Secondary School, where I achieved a score of 375 out of 600. During this period, I developed a keen interest in technology and chose Computer Science as my area of focus, laying the groundwork for my future academic and professional endeavors in the field of technology." data-image="path/to/your/12th-grade-image.jpg">
+                <h3>12th Grade</h3>
+            </div>
+            <div class="education-item" data-details="I completed my undergraduate studies at Scott Christian College in Nagercoil, where I specialized in B.Sc. Computer Science. Throughout my academic journey, I focused on building a solid foundation in computing and related disciplines, ultimately earning a CGPA of 7.4. This academic experience sharpened my problem-solving skills and deepened my understanding of various aspects of computer science, preparing me for advanced studies and a professional career in the field." data-image="path/to/your/ug-image.jpg">
+                <h3>Undergraduate</h3>
+            </div>
+            <div class="education-item" data-details="I am currently pursuing a Master of Computer Applications (MCA) at B. S. Abdur Rahman Crescent Institute of Science and Technology. This program provides me with an in-depth understanding of computer science principles, with a focus on advanced areas such as software engineering, data analytics, machine learning, and cloud computing. I am dedicated to enhancing my technical expertise and engaging in research and projects to further develop my skills for a successful career in the technology field." data-image="path/to/your/pg-image.jpg">
+                <h3>Postgraduate</h3>
+            </div>
+        </div>
+        <div class="education-details" id="education-details">
+            <p>Select a class to view details...</p>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript to handle hover effect
+        document.querySelectorAll('.education-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const details = item.getAttribute('data-details');
+                const image = item.getAttribute('data-image');
+                document.getElementById('education-details').innerHTML = `<strong>Details:</strong> ${details}`;
+                document.getElementById('education-details').style.backgroundImage = `url(${image})`;
+                document.getElementById('education-details').style.backgroundSize = 'cover';
+                document.getElementById('education-details').style.backgroundPosition = 'center';
+            });
+            item.addEventListener('mouseleave', () => {
+                document.getElementById('education-details').innerHTML = 'Select a class to view details...';
+                document.getElementById('education-details').style.backgroundImage = 'none'; // Reset background
+            });
+        });
+    </script>
+</body>
+</html>
