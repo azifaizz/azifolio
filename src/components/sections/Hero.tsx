@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import { Download, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import cv from "../public/cv/mhd_aseel_py.pdf";
 
 const Hero = () => {
-  const professions = ["Full Stack Developer", "UI/UX Designer", "Tech Enthusiast"];
+  const professions = [
+    "Full Stack Developer",
+    "UI/UX Designer",
+    "Tech Enthusiast",
+  ];
   const [currentProfession, setCurrentProfession] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -31,7 +36,10 @@ const Hero = () => {
   }, [displayText, isDeleting, currentProfession, professions]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center px-4 pt-20"
+    >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Side - Text Content */}
@@ -48,14 +56,25 @@ const Hero = () => {
             </div>
 
             <p className="text-base sm:text-lg text-muted-foreground max-w-xl text-justify leading-relaxed">
-              I am a Front-End Developer passionate about creating beautiful and responsive web interfaces. Skilled in HTML, CSS, JavaScript, and Bootstrap, I turn designs into fully functional websites. I focus on building user-friendly experiences with attention to detail and performance. Constantly learning and exploring new technologies to enhance my development skills. My goal is to deliver clean, efficient, and visually appealing web solutions.
+              I am a Front-End Developer passionate about creating beautiful and
+              responsive web interfaces. Skilled in HTML, CSS, JavaScript, and
+              Bootstrap, I turn designs into fully functional websites. I focus
+              on building user-friendly experiences with attention to detail and
+              performance. Constantly learning and exploring new technologies to
+              enhance my development skills. My goal is to deliver clean,
+              efficient, and visually appealing web solutions.
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">
-              <Button className="bg-gradient-primary glow-primary hover:scale-105 transition-transform flex items-center">
-                <Download className="mr-2" size={20} />
-                Download CV
-              </Button>
+              <a
+                href="../public/cv/mhd_aseel_py.pdf"
+                download="Mohamed_Aseel_CV.pdf"
+              >
+                <Button className="bg-gradient-primary glow-primary hover:scale-105 transition-transform flex items-center">
+                  <Download className="mr-2" size={20} />
+                  Download CV
+                </Button>
+              </a>
 
               <div className="flex gap-3">
                 <a

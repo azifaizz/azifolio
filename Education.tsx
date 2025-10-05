@@ -57,7 +57,7 @@ const Education = () => {
     <section
       id="education"
       ref={sectionRef}
-      className="min-h-screen py-20 px-4"
+      className="min-h-screen py-20 px-4 relative"
     >
       <div className="max-w-7xl mx-auto">
         <h2
@@ -68,11 +68,19 @@ const Education = () => {
           My <span className="gradient-text">Education</span>
         </h2>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-primary"></div>
+        <div className="relative flex flex-col items-start md:items-center">
+          {/* Timeline line container */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-transparent z-0">
+            {/* Animated line from bottom to top */}
+            <div
+              className={`bg-primary w-full origin-bottom scale-y-0 transition-transform duration-[2000ms] ease-out ${
+                isVisible ? "scale-y-100" : ""
+              }`}
+              style={{ transformOrigin: "bottom" }}
+            ></div>
+          </div>
 
-          <div className="space-y-12">
+          <div className="space-y-12 w-full">
             {educationData.map((edu, index) => {
               const Icon = edu.icon;
               const isEven = index % 2 === 0;
@@ -80,17 +88,20 @@ const Education = () => {
               return (
                 <div
                   key={index}
-                  className={`scroll-reveal ${
-                    isVisible ? "revealed" : ""
-                  } flex items-center`}
-                  style={{ transitionDelay: `${index * 200}ms` }}
+                  className={`relative flex flex-col md:flex-row items-start ${
+                    isVisible ? "animate-fade-in-up" : "opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${index * 300}ms` }}
                 >
+                  {/* Dot */}
+                  <div className="absolute left-8 md:left-1/2 top-6 w-4 h-4 bg-primary rounded-full z-10 glow-primary"></div>
+
                   <div
                     className={`w-full md:w-1/2 ${
                       isEven ? "md:pr-12 md:text-right" : "md:pl-12 md:ml-auto"
                     }`}
                   >
-                    <div className="glass-card p-6 rounded-2xl hover:glow-primary transition-all duration-300 hover:scale-105">
+                    <div className="glass-card p-6 rounded-2xl hover:glow-primary transition-all duration-300 hover:scale-105 z-10 relative">
                       <div
                         className={`flex items-start gap-4 ${
                           isEven ? "md:flex-row-reverse" : ""
@@ -99,7 +110,6 @@ const Education = () => {
                         <div className="glass-card p-3 rounded-xl glow-primary">
                           <Icon size={24} className="text-primary" />
                         </div>
-
                         <div className="flex-1">
                           <h3 className="text-xl font-bold mb-1">
                             {edu.school}
@@ -117,9 +127,6 @@ const Education = () => {
                       </div>
                     </div>
                   </div>
-
-                  {/* Timeline dot */}
-                  <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 glow-primary"></div>
                 </div>
               );
             })}
