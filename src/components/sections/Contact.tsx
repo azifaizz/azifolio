@@ -81,10 +81,10 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Github, href: "https://github.com/azifaizz", label: "GitHub" },
+    { icon: Linkedin, href: "https://linkedin.com/in/azifaizz", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/AseelFaizz", label: "Twitter" },
+    { icon: Instagram, href: "https://www.instagram.com/azifaizz/", label: "Instagram" },
   ];
 
   return (

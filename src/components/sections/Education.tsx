@@ -34,14 +34,14 @@ const Education = () => {
     },
     {
       icon: BookOpen,
-      school: "St.Mary Goretty Hr Sec School",
+      school: "St.Mary Goretty Higher Secondary School",
       degree: "Higher Secondary Certificate",
       year: "2018 - 2020",
       description: "Completed My 11th and 12th Grade",
     },
     {
       icon: School,
-      school: "Islamic Model Matric Hr Sec School",
+      school: "Islamic Model Matriculation Higher Secondary School",
       degree: "Secondary School Leaving Certificate",
       year: "2017",
       description: "Completed my 10th Grade",

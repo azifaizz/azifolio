@@ -1,26 +1,36 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import certificate1 from "../../images/certificate1.jpg";
-import certificate2 from "../../images/certificate2.jpg";
+import stjosephcert from "../../images/stjosephcert.jpeg";
+import chatgpt from "../../images/chatgpt.jpg";
 import certificate3 from "../../images/certificate3.jpg";
-import certificate4 from "../../images/certificate4.jpg";
+import certificate4 from "../../images/machinelearningcert.jpeg";
 
 const certifications = [
   {
-    title: "Deep Learning Specialization",
-    issuer: "Coursera",
-    date: "March 2023",
-    image: certificate1,
+    title:
+      "Remaining Useful Life (RUL) Prediction for Batteries of Electric Vehicle",
+    issuer: "St. Joseph's College (Arts & Science),Chennai",
+    date: "26 March 2025",
+    image: stjosephcert,
     description:
-      "Learned advanced deep learning concepts including CNNs, RNNs, and neural network optimization techniques.",
+      "I was awarded a Certificate of Appreciation by St Josephs College Arts and Science for successfully presenting my paper Remaining Useful Life RUL Prediction for Batteries of Electric Vehicle at the International Conference on Global Perspectives on Sustainability ICGPS 2025 on March 26th 2025. As a student from BSA Crescent Institute of Science and Technology this recognition highlights my research commitment to a vital global sustainability topic electric vehicle technology.",
   },
   {
-    title: "Machine Learning A-Z",
-    issuer: "Udemy",
-    date: "June 2023",
-    image: certificate2,
+    title: "	ChatGPT for Project Management - Leveraging AI for Success",
+    issuer: "Vanderbilt University - Coursera",
+    date: "March 8 2025",
+    image: chatgpt,
     description:
-      "Gained practical knowledge of machine learning algorithms like regression, classification, clustering, and feature engineering.",
+      "I successfully completed the ChatGPT for Project Management Specialization from Vanderbilt University on Coursera where I learned how to effectively leverage ChatGPT for planning executing and tracking projects apply prompt engineering techniques for better AI responses and gain insights to ensure project success across all stages of management.",
+  },
+
+  {
+    title: "Machine Learning using Python",
+    issuer: "simplilearn",
+    date: "6 March 2025",
+    image: certificate4,
+    description:
+      "Successfully completed the Machine Learning Using Python certification course from Simplilearn, gaining hands-on experience in data preprocessing, model building, and evaluating machine learning algorithms using Python.",
   },
   {
     title: "Python for Data Science",
@@ -29,14 +39,6 @@ const certifications = [
     image: certificate3,
     description:
       "Enhanced Python skills specifically for data analysis, visualization, and handling datasets efficiently with Pandas and NumPy.",
-  },
-  {
-    title: "AI for Everyone",
-    issuer: "Coursera",
-    date: "April 2024",
-    image: certificate4,
-    description:
-      "Understood AI concepts, business applications, and ethical considerations of AI in real-world scenarios.",
   },
 ];
 
@@ -102,23 +104,22 @@ const Certifications = () => {
           ))}
         </div>
       </div>
-
       {/* Modal */}
       {selectedCert !== null && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-          <div className="relative max-w-xl w-full bg-background rounded-2xl p-4 sm:p-6 glass-card shadow-glow overflow-visible">
+          <div className="relative w-[95%] sm:w-[600px] md:w-[720px] bg-background rounded-2xl p-6 sm:p-8 glass-card shadow-glow overflow-visible max-h-[90vh] overflow-y-auto">
             {/* X Button */}
             <button
               onClick={() => setSelectedCert(null)}
-              className="absolute -top-4 -right-4 md:top-4 md:right-4 text-foreground hover:text-white transition z-[1000]"
+              className="absolute top-3 right-3 text-foreground hover:text-white transition z-[1000] bg-black/40 rounded-full p-1 backdrop-blur-sm"
             >
-              <X size={28} />
+              <X size={24} />
             </button>
 
             <img
               src={certifications[selectedCert].image}
               alt={certifications[selectedCert].title}
-              className="w-full h-auto max-h-[320px] sm:max-h-[380px] object-contain rounded-2xl mb-4"
+              className="w-full h-auto max-h-[380px] sm:max-h-[420px] object-contain rounded-2xl mb-4"
             />
 
             <h2 className="text-2xl font-bold text-foreground mb-2">
@@ -131,7 +132,7 @@ const Certifications = () => {
               {certifications[selectedCert].date}
             </p>
 
-            <div className="bg-card p-3 sm:p-4 rounded-lg text-foreground/90 text-sm sm:text-base">
+            <div className="bg-card p-4 sm:p-5 rounded-lg text-foreground/90 text-sm sm:text-base leading-relaxed">
               {certifications[selectedCert].description}
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ZoomIn, X } from "lucide-react";
-
+import gallery1 from '../src/images/gallery1.png';
 const Gallery = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -19,7 +19,7 @@ const Gallery = () => {
   }, []);
 
   const images = [
-    { url: "https://images.unsplash.com/photo-1498050108023-c5249f4df085", title: "Web Development" },
+    { url: "../src/images/gallery1.jpg", title: "Kashmir & Me" },
     { url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c", title: "Coding Setup" },
   ];
 
