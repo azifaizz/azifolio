@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import brainTumor from "../src/images/braintumor.jpeg";
 import securefile from "../src/images/securefile.jpeg";
 import bt1 from "../src/Screenshots/bt1.jpg";
+import evbattery from "../src/images/evbattery.jpg";
 import {
   ArrowLeft,
   Github,
@@ -207,81 +208,85 @@ const ProjectDetail = () => {
       ],
     },
     "3": {
-      title: "Brain tumor cancer prediction using machine learning",
+      title:
+        "Remaining Useful Life prediction for batteries of Electric Vehicle",
       description:
-        "This project uses machine learning to detect brain tumors from MRI scans.It classifies tumor types accurately, aiding doctors in early diagnosis.The system improves detection speed and reduces manual analysis errors.",
+        "This project establishes a robust machine learning framework for the Remaining Useful Life (RUL) prediction of Electric Vehicle (EV) batteries. It utilizes ensemble and deep learning models, such as LightGBM, to achieve high-accuracy forecasts of battery degradation. This system is critical for enabling proactive maintenance, enhancing operational safety, and promoting the sustainable, cost-effective management of EV fleets.",
       fullDescription:
-        "This is the project description converted into a single, easy-to-read paragraph, perfect for a portfolio.This project showcases an Automated Brain Tumor Classification system built using Deep Learning. The main objective was to create a reliable solution that can quickly and accurately analyze an MRI image and classify it as having a Tumor or No Tumor. We used a Convolutional Neural Network (CNN), the ideal architecture for image analysis, and trained it on a dataset of over 3,000 brain scans. The process involved crucial steps like image augmentation and using smart training callbacks such as ModelCheckpoint and ReduceLROnPlateau to ensure the model achieved high performance and stability. The final, optimized model was saved as an .h5 file and is deployed through a Streamlit web application, allowing users (including recruiters) to upload an image and receive a real-time prediction, demonstrating the full end-to-end pipeline from development to deployment.",
-      image: "../src/images/braintumor.jpeg",
+        "This project establishes a robust, automated machine learning pipeline dedicated to forecasting the Remaining Useful Life (RUL) of Electric Vehicle (EV) batteries based on complex operational data. It begins with rigorous data preprocessing, including scaling features and engineering new domain-specific variables like Charge_Discharge_Ratio and Voltage_Gap. Dimensionality reduction via Principal Component Analysis (PCA) is applied to maintain 95% of the variance while optimizing model training efficiency. The core of the project involves evaluating multiple state-of-the-art regression models—XGBoost, Random Forest, LightGBM, and an LSTM deep learning model—to determine the most effective predictor of battery degradation. Performance is systematically measured using RMSE, MAE, and R² scores, demonstrating the high accuracy achievable in predicting battery longevity. The overall goal is to provide a predictive tool for proactive maintenance and better fleet management in the EV industry.",
+      image: "../src/images/evbattery.jpg",
       tags: [
         "Jupyter Notebook",
         "Python",
-        "Numpy",
-        "Pandas",
-        "Image recognition",
-        "Median Filter",
-        "Express",
+        "Machine Learning",
+        "Data Science",
+        "Regression",
+        "XGBoost",
+        "LightGBM",
+        "LSTM",
+        "PCA",
+        "Battery RUL",
       ],
       github: "https://github.com",
       demo: "https://example.com",
-      date: "March 2023",
-      team: "3 members",
-      role: "Model Trainer",
+      date: "May 2025",
+      team: "1 member",
+      role: "Developer",
       features: [
-        "High-Performance CNN Architecture",
-        "Web Deployment (Streamlit/Live Demo)",
-        "Advanced Model Optimization (Callbacks & Regularization)",
-        "Robust Data Augmentation & Preprocessing",
-        "Real-Time Classification with Confidence Score",
-        "Full ML Pipeline Showcase (Development to Production)",
-        "Binary Classification for Clarity",
-        "Leverages TensorFlow/Keras Framework",
+        "End-to-End ML Pipeline",
+        "Domain-Specific Feature Engineering",
+        "Dimensionality Reduction",
+        "Comparative Model Evaluation",
+        "High Accuracy with LightGBM",
+        "LSTM Hyperparameter Tuning",
+        "Performance Metrics",
+        "External Data Prediction",
       ],
       technologies: [
         {
-          name: "TensorFlow",
+          name: "Python",
           description:
-            "The foundational deep learning library for building and executing the model's computational graph.",
+            "The core programming language for the entire project.",
         },
         {
-          name: "Keras",
+          name: "Pandas",
           description:
-            "The high-level API (integrated into TensorFlow) used for quickly defining the Sequential CNN model structure and layers.",
-        },
-        {
-          name: "Convolutional Neural Networks (CNN)",
-          description:
-            "The specific type of neural network architecture used for feature extraction and image classification.",
-        },
-        {
-          name: "HDF5 (.h5 format)",
-          description:
-            "The standard file format used for saving and loading the trained Keras model, including its architecture and learned weights.",
+            "Used for efficient data loading, cleaning, manipulation, and feature engineering.",
         },
         {
           name: "NumPy",
           description:
-            "Essential library for high-performance array and matrix operations, fundamental for handling image data and predictions.",
+            "Essential for numerical operations, array manipulation, and metric calculations.",
         },
         {
-          name: "Matplotlib",
+          name: "Scikit-learn",
           description:
-            "Used for data visualization, specifically plotting the training loss and accuracy history after the model has trained.",
+            "Provides tools for data preprocessing (e.g., StandardScaler), model selection (train_test_split, RandomizedSearchCV), dimensionality reduction (PCA), and ensemble models (RandomForestRegressor)",
         },
         {
-          name: "ImageDataGenerator",
+          name: "XGBoost (XGBRegressor)",
           description:
-            "A Keras utility used for real-time data augmentation and efficient loading of image data during training.",
+            "A gradient boosting framework used for highly accurate regression modeling.",
         },
         {
-          name: "Streamlit",
+          name: "LightGBM (lgb)",
           description:
-            "The Python framework used to quickly build and host the interactive web application (the front-end interface) for the live demo.",
+            "A high-performance gradient boosting framework that proved to be the best-performing model in this analysis.",
         },
         {
-          name: "Python",
+          name: "Keras/TensorFlow (LSTM, Sequential)",
           description:
-            "The primary programming language used to write the entire project, including the training notebook and the deployment script.",
+            "Used to build, train, and evaluate a Long Short-Term Memory (LSTM) deep learning model, ideal for sequential data patterns.",
+        },
+        {
+          name: "Matplotlib & Seaborn",
+          description:
+            "Used for data visualization, including plotting the cumulative explained variance for PCA and comparing actual vs. predicted RUL values.",
+        },
+        {
+          name: "Jupyter Notebook",
+          description:
+            " The interactive environment used to develop, document, and run the entire data science workflow.",
         },
       ],
       screenshots: [
@@ -344,7 +349,7 @@ const ProjectDetail = () => {
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 {project.title}
               </h1>
-              <p className="text-xl text-muted-foreground mb-6">
+              <p className="text-xl text-muted-foreground mb-6 text-justify">
                 {project.description}
               </p>
 
@@ -407,10 +412,10 @@ const ProjectDetail = () => {
           className="glass-card p-8 rounded-2xl mb-8 animate-fade-in-up"
           style={{ animationDelay: "200ms" }}
         >
-          <h2 className="text-2xl font-bold mb-4 gradient-text">
+          <h2 className="text-2xl font-bold mb-4 gradient-text text-justify">
             About the Project
           </h2>
-          <p className="text-foreground/80 leading-relaxed">
+          <p className="text-foreground/80 leading-relaxed text-justify">
             {project.fullDescription}
           </p>
         </div>

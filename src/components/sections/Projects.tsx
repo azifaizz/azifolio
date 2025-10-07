@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import brainTumor from '../src/images/braintumor.jpeg'
 import securefile from '../src/images/securefile.jpeg'
+import evbattery from '../src/images/evbattery.jpg'
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,15 +43,15 @@ const Projects = () => {
       description: 'SecureFileX is a file security application that lets users encrypt and decrypt files effortlessly. It keeps sensitive data protected from unauthorized access. Designed for simplicity, it safeguards your files with strong encryption.',
       image: '../src/images/securefile.jpeg',
       github: 'https://github.com',
-      tags: ['HTML', 'CSS', 'javascript','Python'],
+      tags: ['HTML', 'CSS', 'Python','Flask Framework'],
     },
     {
       id: 3,
-      title: 'AI Content Generator',
-      description: 'AI-powered content generation tool using OpenAI API. Generate blog posts, social media content, and marketing copy with advanced customization.',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop',
+      title: 'Remaining Useful Life prediction for batteries of Electric Vehicle',
+      description: 'A comprehensive machine learning framework using advanced feature engineering, PCA, and ensemble/deep learning models to accurately predict the Remaining Useful Life (RUL) of Electric Vehicle (EV) batteries, highlighting LightGBMs superior performance.',
+      image: '../src/images/evbattery.jpg',
       github: 'https://github.com',
-      tags: ['Next.js', 'OpenAI', 'TypeScript'],
+      tags: ['Jupyter Notebook', 'Python', 'Machine Learning'],
     },
   ];
 
@@ -83,7 +84,7 @@ const Projects = () => {
 
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
+                <p className="text-muted-foreground text-sm mb-4 text-justify">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
