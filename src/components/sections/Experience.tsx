@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { Briefcase, Calendar } from 'lucide-react';
+import { useEffect, useRef, useState } from "react";
+import { Briefcase, Calendar } from "lucide-react";
 
 const Experience = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,26 +24,31 @@ const Experience = () => {
 
   const experiences = [
     {
-      role: 'Senior Frontend Developer',
-      company: 'Tech Innovations Ltd',
-      duration: 'Jan 2023 - Present',
-      description: 'Leading frontend development team, architecting scalable React applications, mentoring junior developers, and implementing best practices for code quality and performance optimization.',
+      role: "Full Stack Developer(Intern)",
+      company: "White Track Technologies",
+      duration: "Sep 2025 - Present",
+      description:
+        "Developing and maintaining web applications by writing HTML, CSS, JavaScript and Java, managing databases, and ensuring smooth functionality and user experience.",
       achievements: [
-        'Reduced application load time by 40%',
-        'Led migration to TypeScript',
-        'Implemented CI/CD pipeline',
+        "Optimized Web Performance",
+        "Database Efficiency",
+        "Code Quality & Maintainability",
       ],
     },
   ];
 
   return (
-    <section 
-      id="experience" 
+    <section
+      id="experience"
       ref={sectionRef}
       className="min-h-screen py-20 px-4"
     >
       <div className="max-w-7xl mx-auto">
-        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <h2
+          className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
+            isVisible ? "animate-fade-in-up" : "opacity-0"
+          }`}
+        >
           Work <span className="gradient-text">Experience</span>
         </h2>
 
@@ -51,7 +56,9 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className={`scroll-reveal ${isVisible ? 'revealed' : ''} glass-card p-8 rounded-2xl hover:glow-primary transition-all duration-300`}
+              className={`scroll-reveal ${
+                isVisible ? "revealed" : ""
+              } glass-card p-8 rounded-2xl hover:glow-primary transition-all duration-300`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               <div className="flex flex-col md:flex-row md:items-start gap-6">
@@ -68,16 +75,22 @@ const Experience = () => {
                     </div>
                   </div>
 
-                  <p className="text-primary font-semibold mb-4">{exp.company}</p>
+                  <p className="text-primary font-semibold mb-4">
+                    {exp.company}
+                  </p>
                   <p className="text-foreground/80 mb-4">{exp.description}</p>
 
                   <div className="space-y-2">
-                    <p className="font-semibold text-sm text-muted-foreground">Key Achievements:</p>
+                    <p className="font-semibold text-sm text-muted-foreground">
+                      Key Achievements:
+                    </p>
                     <ul className="space-y-1">
                       {exp.achievements.map((achievement, idx) => (
                         <li key={idx} className="flex items-start gap-2">
                           <span className="text-primary mt-1">▹</span>
-                          <span className="text-sm text-foreground/80">{achievement}</span>
+                          <span className="text-sm text-foreground/80">
+                            {achievement}
+                          </span>
                         </li>
                       ))}
                     </ul>

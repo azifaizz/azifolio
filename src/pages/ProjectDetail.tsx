@@ -227,7 +227,8 @@ const ProjectDetail = () => {
         "PCA",
         "Battery RUL",
       ],
-      github: "https://github.com",
+      github:
+        "https://github.com/azifaizz/Remaining-Useful-Life-prediction-for-batteries-of-Electric-Vehicle.git",
       demo: "https://example.com",
       date: "May 2025",
       team: "1 member",
@@ -245,8 +246,7 @@ const ProjectDetail = () => {
       technologies: [
         {
           name: "Python",
-          description:
-            "The core programming language for the entire project.",
+          description: "The core programming language for the entire project.",
         },
         {
           name: "Pandas",

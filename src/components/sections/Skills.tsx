@@ -9,6 +9,8 @@ import {
   Lightbulb,
   MessageSquare,
   Brain,
+  FileCode,
+  PencilRuler,
 } from "lucide-react";
 
 const Skills = () => {
@@ -17,11 +19,12 @@ const Skills = () => {
   const toolsRef = useRef<HTMLDivElement>(null);
 
   const hardSkills = [
-    { icon: Code, name: "React & Next.js" },
+    { icon: Code, name: "Python"},
     { icon: Server, name: "Node.js & Express" },
-    { icon: Database, name: "PostgreSQL" },
+    { icon: Database, name: "MySQL" },
     { icon: Layout, name: "UI/UX Design" },
     { icon: Palette, name: "Tailwind & CSS" },
+    { icon: FileCode, name: "HTML5" },
   ];
 
   const softSkills = [
@@ -35,7 +38,7 @@ const Skills = () => {
   ];
 
   const tools = [
-    { icon: Palette, name: "Adobe Photoshop" },
+    { icon: PencilRuler, name: "Adobe Photoshop" },
     { icon: Layout, name: "Figma" },
     { icon: Server, name: "Framer" },
     { icon: Code, name: "Canva" },
@@ -59,7 +62,9 @@ const Skills = () => {
       }
 
       if (softEl) {
-        softScroll = (softScroll - speed + softEl.scrollWidth / 2) % (softEl.scrollWidth / 2);
+        softScroll =
+          (softScroll - speed + softEl.scrollWidth / 2) %
+          (softEl.scrollWidth / 2);
         softEl.scrollLeft = softScroll;
       }
 
@@ -96,7 +101,9 @@ const Skills = () => {
         key={skill.name + type}
         className="flex-shrink-0 glass-card p-6 rounded-2xl transition-all duration-300 w-48 sm:w-56 md:w-60 text-center mx-2"
       >
-        <div className={`glass-card p-4 rounded-xl ${glowClass} inline-block mb-4`}>
+        <div
+          className={`glass-card p-4 rounded-xl ${glowClass} inline-block mb-4`}
+        >
           <Icon size={32} className={textClass} />
         </div>
         <h4 className="font-semibold">{skill.name}</h4>
@@ -104,8 +111,15 @@ const Skills = () => {
     );
   };
 
-  const renderScroller = (skills: any[], type: "hard" | "soft" | "tools", ref: any) => (
-    <div ref={ref} className="flex gap-6 overflow-hidden whitespace-nowrap px-4">
+  const renderScroller = (
+    skills: any[],
+    type: "hard" | "soft" | "tools",
+    ref: any
+  ) => (
+    <div
+      ref={ref}
+      className="flex gap-6 overflow-hidden whitespace-nowrap px-4"
+    >
       {[...skills, ...skills].map((skill) => renderCard(skill, type))}
     </div>
   );
