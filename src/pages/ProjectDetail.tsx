@@ -112,12 +112,12 @@ const ProjectDetail = () => {
         },
       ],
       screenshots: [
-        "../src/Screenshots/bt1.jpg",
-        "../src/Screenshots/bt2.jpg",
-        "../src/Screenshots/bt3.jpg",
-        "../src/Screenshots/bt4.jpg",
-        "../src/Screenshots/bt5.jpg",
-        "../src/Screenshots/bt6.jpg",
+        "../public/Screenshots/bt1.jpg",
+        "../public/Screenshots/bt2.jpg",
+        "../public/Screenshots/bt3.jpg",
+        "../public/Screenshots/bt4.jpg",
+        "../public/Screenshots/bt5.jpg",
+        "../public/Screenshots/bt6.jpg",
       ],
     },
     "2": {
@@ -199,7 +199,7 @@ const ProjectDetail = () => {
         },
       ],
       screenshots: [
-        "../src/Screenshots/bt1.jpg",
+        "../public/Screenshots/bt1.jpg",
         "../src/Screenshots/bt2.jpg",
         "../src/Screenshots/bt3.jpg",
         "../src/Screenshots/bt4.jpg",
