@@ -6,6 +6,7 @@
 
 import { Volume2, Code, Zap, Smartphone, Clock, BarChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import blogimg from "../images/blog1.png";
 
 const BlogPost = () => {
   // Mock data for dynamic rendering (future use)
@@ -54,7 +55,7 @@ const BlogPost = () => {
       <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] relative overflow-hidden animate-fade-in">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-primary/10 to-background z-10"></div>
         <img
-          src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=2000&q=80"
+          src={blogimg}
           alt="Coding workspace with laptop"
           className="w-full h-full object-cover"
         />
@@ -442,7 +443,8 @@ const BlogPost = () => {
         {/* Footer CTA */}
         <footer className="text-center animate-fade-in-up">
           <p className="mt-8 text-muted-foreground">
-            Written with curiosity and a touch of humor by your's azi
+            Written with curiosity and a touch of humor by your's{" "}
+            <span className="text-primary">azi</span>
           </p>
         </footer>
       </main>

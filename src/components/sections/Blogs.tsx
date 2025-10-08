@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import blogimg from "../src/images/blog1.png";
 
 const Blogs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,51 +27,14 @@ const Blogs = () => {
   const blogs = [
     {
       id: "distraction-blocker",
-      title: "Getting Started with React Server Components",
+      title: "Distraction Tracker for Work Environment",
       excerpt:
-        "Explore the future of React with Server Components and learn how they can revolutionize your application architecture and performance.",
-      date: "2024-03-15",
+        "Stay focused like never before with a distraction blocker that yells at you when you stray.",
+      date: "08-08-2025",
       readTime: "8 min read",
-      image:
-        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop",
+      image: "./src/images/blog1.png",
       tags: ["React", "Web Development"],
       link: "/blog/distraction-blocker", // link to BlogPost page
-    },
-    {
-      id: "nodejs-apis",
-      title: "Building Scalable APIs with Node.js",
-      excerpt:
-        "Best practices and architectural patterns for creating robust, scalable RESTful APIs that can handle millions of requests.",
-      date: "2024-03-10",
-      readTime: "10 min read",
-      image:
-        "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&h=400&fit=crop",
-      tags: ["Node.js", "Backend"],
-      link: "/blog/nodejs-apis",
-    },
-    {
-      id: "modern-css",
-      title: "Modern CSS Techniques for 2024",
-      excerpt:
-        "Discover the latest CSS features including container queries, cascade layers, and advanced grid techniques that will transform your styling workflow.",
-      date: "2024-03-05",
-      readTime: "6 min read",
-      image:
-        "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?w=800&h=400&fit=crop",
-      tags: ["CSS", "Design"],
-      link: "/blog/modern-css",
-    },
-    {
-      id: "typescript-tips",
-      title: "TypeScript Tips for Better Code Quality",
-      excerpt:
-        "Advanced TypeScript patterns and techniques to write more maintainable, type-safe code that scales with your project.",
-      date: "2024-02-28",
-      readTime: "7 min read",
-      image:
-        "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop",
-      tags: ["TypeScript", "Best Practices"],
-      link: "/blog/typescript-tips",
     },
   ];
 
