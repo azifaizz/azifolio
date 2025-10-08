@@ -83,7 +83,7 @@ const Contact = () => {
   const socialLinks = [
     { icon: Github, href: "https://github.com/azifaizz", label: "GitHub" },
     { icon: Linkedin, href: "https://linkedin.com/in/azifaizz", label: "LinkedIn" },
-    { icon: Twitter, href: "https://x.com/AseelFaizz", label: "Twitter" },
+    { icon: Twitter, href: "https://x.com/azifaizz", label: "Twitter" },
     { icon: Instagram, href: "https://www.instagram.com/azifaizz/", label: "Instagram" },
   ];
 

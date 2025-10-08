@@ -94,7 +94,7 @@ const Hero = () => {
                   <Linkedin size={24} />
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://x.com/azifaizz"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card p-3 rounded-lg hover:glow-primary transition-all hover:scale-110"

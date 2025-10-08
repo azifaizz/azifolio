@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BlogPost from "../pages/BlogPost.tsx";
 
 const Blogs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,7 +26,6 @@ const Blogs = () => {
 
   const blogs = [
     {
-      id: "distraction-blocker",
       title: "Getting Started with React Server Components",
       excerpt:
         "Explore the future of React with Server Components and learn how they can revolutionize your application architecture and performance.",
@@ -34,10 +34,8 @@ const Blogs = () => {
       image:
         "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop",
       tags: ["React", "Web Development"],
-      link: "/blog/distraction-blocker", // link to BlogPost page
     },
     {
-      id: "nodejs-apis",
       title: "Building Scalable APIs with Node.js",
       excerpt:
         "Best practices and architectural patterns for creating robust, scalable RESTful APIs that can handle millions of requests.",
@@ -46,10 +44,8 @@ const Blogs = () => {
       image:
         "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&h=400&fit=crop",
       tags: ["Node.js", "Backend"],
-      link: "/blog/nodejs-apis",
     },
     {
-      id: "modern-css",
       title: "Modern CSS Techniques for 2024",
       excerpt:
         "Discover the latest CSS features including container queries, cascade layers, and advanced grid techniques that will transform your styling workflow.",
@@ -58,10 +54,8 @@ const Blogs = () => {
       image:
         "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?w=800&h=400&fit=crop",
       tags: ["CSS", "Design"],
-      link: "/blog/modern-css",
     },
     {
-      id: "typescript-tips",
       title: "TypeScript Tips for Better Code Quality",
       excerpt:
         "Advanced TypeScript patterns and techniques to write more maintainable, type-safe code that scales with your project.",
@@ -70,7 +64,6 @@ const Blogs = () => {
       image:
         "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop",
       tags: ["TypeScript", "Best Practices"],
-      link: "/blog/typescript-tips",
     },
   ];
 
@@ -131,15 +124,15 @@ const Blogs = () => {
                   ))}
                 </div>
 
-                {/* Updated Link */}
-                <a href={blog.link}>
-                  <a className="w-full inline-flex items-center justify-center bg-gradient-primary hover:glow-primary group px-4 py-2 rounded-lg text-white font-semibold transition">
-                    Read More
-                    <ArrowRight
-                      size={16}
-                      className="ml-2 group-hover:translate-x-1 transition-transform"
-                    />
-                  </a>
+                <a
+                  href="" // change this to your actual blog URL
+                  className="w-full inline-flex items-center justify-center bg-gradient-primary hover:glow-primary group px-4 py-2 rounded-lg text-white font-semibold transition"
+                >
+                  Read More
+                  <ArrowRight
+                    size={16}
+                    className="ml-2 group-hover:translate-x-1 transition-transform"
+                  />
                 </a>
               </div>
             </div>

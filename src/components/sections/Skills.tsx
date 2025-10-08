@@ -19,7 +19,7 @@ const Skills = () => {
   const toolsRef = useRef<HTMLDivElement>(null);
 
   const hardSkills = [
-    { icon: Code, name: "Python"},
+    { icon: Code, name: "Python" },
     { icon: Server, name: "Node.js & Express" },
     { icon: Database, name: "MySQL" },
     { icon: Layout, name: "UI/UX Design" },
@@ -44,34 +44,28 @@ const Skills = () => {
     { icon: Code, name: "Canva" },
   ];
 
+  // Scroll animation
   useEffect(() => {
-    const hardEl = hardRef.current;
-    const softEl = softRef.current;
-    const toolsEl = toolsRef.current;
-
     const speed = 0.5;
-
     let hardScroll = 0;
     let softScroll = 0;
     let toolsScroll = 0;
 
     const animate = () => {
-      if (hardEl) {
-        hardScroll = (hardScroll + speed) % (hardEl.scrollWidth / 2);
-        hardEl.scrollLeft = hardScroll;
-      }
+      const loop = (ref: HTMLDivElement | null, scroll: number, reverse = false) => {
+        if (!ref) return scroll;
+        // True infinite: clone until scrollWidth > 2 * container width
+        const scrollWidth = ref.scrollWidth / 2; 
+        scroll = reverse
+          ? (scroll - speed + scrollWidth) % scrollWidth
+          : (scroll + speed) % scrollWidth;
+        ref.scrollLeft = scroll;
+        return scroll;
+      };
 
-      if (softEl) {
-        softScroll =
-          (softScroll - speed + softEl.scrollWidth / 2) %
-          (softEl.scrollWidth / 2);
-        softEl.scrollLeft = softScroll;
-      }
-
-      if (toolsEl) {
-        toolsScroll = (toolsScroll + speed) % (toolsEl.scrollWidth / 2);
-        toolsEl.scrollLeft = toolsScroll;
-      }
+      hardScroll = loop(hardRef.current, hardScroll);
+      softScroll = loop(softRef.current, softScroll, true);
+      toolsScroll = loop(toolsRef.current, toolsScroll);
 
       requestAnimationFrame(animate);
     };
@@ -96,14 +90,13 @@ const Skills = () => {
         : type === "soft"
         ? "text-secondary"
         : "text-primary";
+
     return (
       <div
-        key={skill.name + type}
+        key={skill.name + type + Math.random()} // ensure unique keys
         className="flex-shrink-0 glass-card p-6 rounded-2xl transition-all duration-300 w-48 sm:w-56 md:w-60 text-center mx-2"
       >
-        <div
-          className={`glass-card p-4 rounded-xl ${glowClass} inline-block mb-4`}
-        >
+        <div className={`glass-card p-4 rounded-xl ${glowClass} inline-block mb-4`}>
           <Icon size={32} className={textClass} />
         </div>
         <h4 className="font-semibold">{skill.name}</h4>
@@ -114,15 +107,20 @@ const Skills = () => {
   const renderScroller = (
     skills: any[],
     type: "hard" | "soft" | "tools",
-    ref: any
-  ) => (
-    <div
-      ref={ref}
-      className="flex gap-6 overflow-hidden whitespace-nowrap px-4"
-    >
-      {[...skills, ...skills].map((skill) => renderCard(skill, type))}
-    </div>
-  );
+    ref: React.RefObject<HTMLDivElement>
+  ) => {
+    // Duplicate items enough times to fill container and allow smooth infinite scroll
+    const repeatCount = 6; // increase if needed for smaller arrays
+    const duplicated = Array(repeatCount)
+      .fill(skills)
+      .flat();
+
+    return (
+      <div ref={ref} className="flex gap-6 overflow-hidden whitespace-nowrap px-4">
+        {duplicated.map((skill) => renderCard(skill, type))}
+      </div>
+    );
+  };
 
   return (
     <section id="skills" className="min-h-screen py-20 px-0">
