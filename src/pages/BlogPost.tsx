@@ -55,7 +55,7 @@ const BlogPost = () => {
       <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] relative overflow-hidden animate-fade-in">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-primary/10 to-background z-10"></div>
         <img
-          src="../public/images/blog1.png"
+          src="/images/blog1.png"
           alt="Coding workspace with laptop"
           className="w-full h-full object-cover"
         />
