@@ -77,14 +77,26 @@ const Contact = () => {
       href: "mailto:aseelfaizzin1@gmail.com",
     },
     { icon: Phone, text: "+91 9786890102", href: "tel:+91 9786890102" },
-    { icon: MapPin, text: "Kanyakumari,Tamil Nadu", href: "https://www.google.com/maps/place/Kanniyakumari,+Tamil+Nadu/@8.086444,77.5252707,14z/data=!3m1!4b1!4m6!3m5!1s0x3b04ed3d2a087861:0x1e790e896aeffaa0!8m2!3d8.0843512!4d77.5495019!16zL20vMDF0eG1s?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D"},
+    {
+      icon: MapPin,
+      text: "Kanyakumari,Tamil Nadu",
+      href: "https://www.google.com/maps/place/Kanniyakumari,+Tamil+Nadu/@8.086444,77.5252707,14z/data=!3m1!4b1!4m6!3m5!1s0x3b04ed3d2a087861:0x1e790e896aeffaa0!8m2!3d8.0843512!4d77.5495019!16zL20vMDF0eG1s?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D",
+    },
   ];
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/azifaizz", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/azifaizz", label: "LinkedIn" },
+    {
+      icon: Linkedin,
+      href: "https://linkedin.com/in/azifaizz",
+      label: "LinkedIn",
+    },
     { icon: Twitter, href: "https://x.com/azifaizz", label: "Twitter" },
-    { icon: Instagram, href: "https://www.instagram.com/azifaizz/", label: "Instagram" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/azifaizz/",
+      label: "Instagram",
+    },
   ];
 
   return (
@@ -228,7 +240,10 @@ const Contact = () => {
 
       {/* Footer */}
       <div className="mt-20 text-center text-muted-foreground">
-        <p>&copy; 2025 R. Mohamed Aseel. All rights reserved.</p>
+        <p>
+          &copy; 2025 <span className="text-primary"> R. Mohamed Aseel..</span>
+           All rights reserved.
+        </p>
       </div>
     </section>
   );

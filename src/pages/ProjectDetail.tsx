@@ -28,7 +28,7 @@ const ProjectDetail = () => {
         "This project uses machine learning to detect brain tumors from MRI scans.It classifies tumor types accurately, aiding doctors in early diagnosis.The system improves detection speed and reduces manual analysis errors.",
       fullDescription:
         "This is the project description converted into a single, easy-to-read paragraph, perfect for a portfolio.This project showcases an Automated Brain Tumor Classification system built using Deep Learning. The main objective was to create a reliable solution that can quickly and accurately analyze an MRI image and classify it as having a Tumor or No Tumor. We used a Convolutional Neural Network (CNN), the ideal architecture for image analysis, and trained it on a dataset of over 3,000 brain scans. The process involved crucial steps like image augmentation and using smart training callbacks such as ModelCheckpoint and ReduceLROnPlateau to ensure the model achieved high performance and stability. The final, optimized model was saved as an .h5 file and is deployed through a Streamlit web application, allowing users (including recruiters) to upload an image and receive a real-time prediction, demonstrating the full end-to-end pipeline from development to deployment.",
-      image: "../public/images/braintumor.jpeg",
+      image: "/images/braintumor.jpeg",
       tags: [
         "Jupyter Notebook",
         "Python",

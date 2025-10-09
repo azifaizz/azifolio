@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
 const certifications = [
+
   {
     title:
       "Remaining Useful Life (RUL) Prediction for Batteries of Electric Vehicle",
@@ -29,12 +30,12 @@ const certifications = [
       "Successfully completed the Machine Learning Using Python certification course from Simplilearn, gaining hands-on experience in data preprocessing, model building, and evaluating machine learning algorithms using Python.",
   },
   {
-    title: "Python for Data Science",
-    issuer: "edX",
-    date: "January 2024",
+    title: "Cyber Security Basics",
+    issuer: "Skill Vertxt",
+    date: "December 2022",
     image: "/images/certificate3.jpg",
     description:
-      "Enhanced Python skills specifically for data analysis, visualization, and handling datasets efficiently with Pandas and NumPy.",
+      "I just finished a Cyber Security training course I got this Certificate of Training Completion from Skill Vertex. The course was about Cyber Security and ran from November 5th to December 5th 2022. The certificate is in my name R Mohamed Aseel and it even mentions that I showed diligence consistency determination active participation and innovation throughout the whole training. It was signed by the Academic Head Mayank Gathole.",
   },
 ];
 
