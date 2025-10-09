@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import brainTumor from "../public/images/braintumor.jpeg";
-import securefile from "../public/images/securefile.jpeg";
-import bt1 from "../public/Screenshots/bt1.jpg";
-import evbattery from "../public/images/evbattery.jpg";
 import {
   ArrowLeft,
   Github,
@@ -112,12 +108,12 @@ const ProjectDetail = () => {
         },
       ],
       screenshots: [
-        "../public/Screenshots/bt1.jpg",
-        "../public/Screenshots/bt2.jpg",
-        "../public/Screenshots/bt3.jpg",
-        "../public/Screenshots/bt4.jpg",
-        "../public/Screenshots/bt5.jpg",
-        "../public/Screenshots/bt6.jpg",
+        "/Screenshots/bt1.jpg",
+        "/Screenshots/bt2.jpg",
+        "/Screenshots/bt3.jpg",
+        "/Screenshots/bt4.jpg",
+        "/Screenshots/bt5.jpg",
+        "/Screenshots/bt6.jpg",
       ],
     },
     "2": {
@@ -199,12 +195,12 @@ const ProjectDetail = () => {
         },
       ],
       screenshots: [
-        "../public/Screenshots/bt1.jpg",
-        "../public/Screenshots/bt2.jpg",
-        "../public/Screenshots/bt3.jpg",
-        "../public/Screenshots/bt4.jpg",
-        "../public/Screenshots/bt5.jpg",
-        "../public/Screenshots/bt6.jpg",
+        "/Screenshots/bt1.jpg",
+        "/Screenshots/bt2.jpg",
+        "/Screenshots/bt3.jpg",
+        "/Screenshots/bt4.jpg",
+        "/Screenshots/bt5.jpg",
+        "/Screenshots/bt6.jpg",
       ],
     },
     "3": {
@@ -290,12 +286,12 @@ const ProjectDetail = () => {
         },
       ],
       screenshots: [
-        "../public/Screenshots/bt1.jpg",
-        "../public/Screenshots/bt2.jpg",
-        "../public/Screenshots/bt3.jpg",
-        "../public/Screenshots/bt4.jpg",
-        "../public/Screenshots/bt5.jpg",
-        "../public/Screenshots/bt6.jpg",
+        "/Screenshots/bt1.jpg",
+        "/Screenshots/bt2.jpg",
+        "/Screenshots/bt3.jpg",
+        "/Screenshots/bt4.jpg",
+        "/Screenshots/bt5.jpg",
+        "/Screenshots/bt6.jpg",
       ],
     },
     // other projects unchanged...
