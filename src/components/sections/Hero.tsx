@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Download, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import cv from "../public/cv/mhd_aseel_py.pdf";
 
 const Hero = () => {
   const professions = [
@@ -66,10 +65,7 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">
-              <a
-                href="../public/cv/mhd_aseel_py.pdf"
-                download="Mohamed_Aseel_CV.pdf"
-              >
+              <a href="/cv/mhd_aseel_py.pdf" download="Mohmd_Aseel_py.pdf">
                 <Button className="bg-gradient-primary glow-primary hover:scale-105 transition-transform flex items-center">
                   <Download className="mr-2" size={20} />
                   Download CV
@@ -111,7 +107,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-30 animate-pulse"></div>
               <div className="relative w-full h-full glass-card p-2 rounded-full flex items-center justify-center">
                 <img
-                  src="../src/images/profile1.jpg"
+                  src="../images/profile1.jpg"
                   alt="R. Mohamed Aseel"
                   className="w-72 h-72 md:w-96 md:h-96 rounded-full object-cover"
                 />

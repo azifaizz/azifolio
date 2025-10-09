@@ -2,10 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import brainTumor from "../src/images/braintumor.jpeg";
-import securefile from "../src/images/securefile.jpeg";
-import evbattery from "../src/images/evbattery.jpg";
-
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -34,7 +30,7 @@ const Projects = () => {
       title: "Brain tumor cancer prediction using machine learning",
       description:
         "This project uses machine learning to detect brain tumors from MRI scans.It classifies tumor types accurately, aiding doctors in early diagnosis.The system improves detection speed and reduces manual analysis errors.",
-      image: "../src/images/braintumor.jpeg",
+      image: "/images/braintumor.jpeg",
       github:
         "https://github.com/azifaizz/CNN-Based-Brain-Tumor-Cancer-Prediction-Using-Machine-Learning.git",
       tags: ["JupyterNotebook", "Python", "image recognition"],
@@ -44,7 +40,7 @@ const Projects = () => {
       title: "SecureFileX:A Comprehensive file security Application",
       description:
         "SecureFileX is a file security application that lets users encrypt and decrypt files effortlessly. It keeps sensitive data protected from unauthorized access. Designed for simplicity, it safeguards your files with strong encryption.",
-      image: "../src/images/securefile.jpeg",
+      image: "/images/securefile.jpeg",
       github:
         "https://github.com/azifaizz/SecureFileX-A-Comprehensive-File-Security-Application.git",
       tags: ["HTML", "CSS", "Python", "Flask Framework"],
@@ -55,7 +51,7 @@ const Projects = () => {
         "Remaining Useful Life prediction for batteries of Electric Vehicle",
       description:
         "A comprehensive machine learning framework using advanced feature engineering, PCA, and ensemble/deep learning models to accurately predict the Remaining Useful Life (RUL) of Electric Vehicle (EV) batteries, highlighting LightGBMs superior performance.",
-      image: "../src/images/evbattery.jpg",
+      image: "/images/evbattery.jpg",
       github:
         "https://github.com/azifaizz/Remaining-Useful-Life-prediction-for-batteries-of-Electric-Vehicle.git",
       tags: ["Jupyter Notebook", "Python", "Machine Learning"],

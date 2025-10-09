@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import stjosephcert from "../../images/stjosephcert.jpeg";
-import chatgpt from "../../images/chatgpt.jpg";
-import certificate3 from "../../images/certificate3.jpg";
-import certificate4 from "../../images/machinelearningcert.jpeg";
 
 const certifications = [
   {
@@ -11,7 +7,7 @@ const certifications = [
       "Remaining Useful Life (RUL) Prediction for Batteries of Electric Vehicle",
     issuer: "St. Joseph's College (Arts & Science),Chennai",
     date: "26 March 2025",
-    image: stjosephcert,
+    image: "/images/stjosephcert.jpeg",
     description:
       "I was awarded a Certificate of Appreciation by St Josephs College Arts and Science for successfully presenting my paper Remaining Useful Life RUL Prediction for Batteries of Electric Vehicle at the International Conference on Global Perspectives on Sustainability ICGPS 2025 on March 26th 2025. As a student from BSA Crescent Institute of Science and Technology this recognition highlights my research commitment to a vital global sustainability topic electric vehicle technology.",
   },
@@ -19,7 +15,7 @@ const certifications = [
     title: "	ChatGPT for Project Management - Leveraging AI for Success",
     issuer: "Vanderbilt University - Coursera",
     date: "March 8 2025",
-    image: chatgpt,
+    image: "/images/stjosephcert.jpeg",
     description:
       "I successfully completed the ChatGPT for Project Management Specialization from Vanderbilt University on Coursera where I learned how to effectively leverage ChatGPT for planning executing and tracking projects apply prompt engineering techniques for better AI responses and gain insights to ensure project success across all stages of management.",
   },
@@ -28,7 +24,7 @@ const certifications = [
     title: "Machine Learning using Python",
     issuer: "simplilearn",
     date: "6 March 2025",
-    image: certificate4,
+    image: "/images/machinelearningcert.jpeg",
     description:
       "Successfully completed the Machine Learning Using Python certification course from Simplilearn, gaining hands-on experience in data preprocessing, model building, and evaluating machine learning algorithms using Python.",
   },
@@ -36,7 +32,7 @@ const certifications = [
     title: "Python for Data Science",
     issuer: "edX",
     date: "January 2024",
-    image: certificate3,
+    image: "/images/certificate3.jpg",
     description:
       "Enhanced Python skills specifically for data analysis, visualization, and handling datasets efficiently with Pandas and NumPy.",
   },

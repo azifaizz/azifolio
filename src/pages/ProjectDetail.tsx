@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import brainTumor from "../src/images/braintumor.jpeg";
-import securefile from "../src/images/securefile.jpeg";
-import bt1 from "../src/Screenshots/bt1.jpg";
-import evbattery from "../src/images/evbattery.jpg";
+import brainTumor from "../public/images/braintumor.jpeg";
+import securefile from "../public/images/securefile.jpeg";
+import bt1 from "../public/Screenshots/bt1.jpg";
+import evbattery from "../public/images/evbattery.jpg";
 import {
   ArrowLeft,
   Github,
@@ -32,7 +32,7 @@ const ProjectDetail = () => {
         "This project uses machine learning to detect brain tumors from MRI scans.It classifies tumor types accurately, aiding doctors in early diagnosis.The system improves detection speed and reduces manual analysis errors.",
       fullDescription:
         "This is the project description converted into a single, easy-to-read paragraph, perfect for a portfolio.This project showcases an Automated Brain Tumor Classification system built using Deep Learning. The main objective was to create a reliable solution that can quickly and accurately analyze an MRI image and classify it as having a Tumor or No Tumor. We used a Convolutional Neural Network (CNN), the ideal architecture for image analysis, and trained it on a dataset of over 3,000 brain scans. The process involved crucial steps like image augmentation and using smart training callbacks such as ModelCheckpoint and ReduceLROnPlateau to ensure the model achieved high performance and stability. The final, optimized model was saved as an .h5 file and is deployed through a Streamlit web application, allowing users (including recruiters) to upload an image and receive a real-time prediction, demonstrating the full end-to-end pipeline from development to deployment.",
-      image: "../src/images/braintumor.jpeg",
+      image: "../public/images/braintumor.jpeg",
       tags: [
         "Jupyter Notebook",
         "Python",
@@ -126,7 +126,7 @@ const ProjectDetail = () => {
         "This project uses machine learning to detect brain tumors from MRI scans.It classifies tumor types accurately, aiding doctors in early diagnosis.The system improves detection speed and reduces manual analysis errors.",
       fullDescription:
         "This is the project description converted into a single, easy-to-read paragraph, perfect for a portfolio.This project showcases an Automated Brain Tumor Classification system built using Deep Learning. The main objective was to create a reliable solution that can quickly and accurately analyze an MRI image and classify it as having a Tumor or No Tumor. We used a Convolutional Neural Network (CNN), the ideal architecture for image analysis, and trained it on a dataset of over 3,000 brain scans. The process involved crucial steps like image augmentation and using smart training callbacks such as ModelCheckpoint and ReduceLROnPlateau to ensure the model achieved high performance and stability. The final, optimized model was saved as an .h5 file and is deployed through a Streamlit web application, allowing users (including recruiters) to upload an image and receive a real-time prediction, demonstrating the full end-to-end pipeline from development to deployment.",
-      image: "../src/images/braintumor.jpeg",
+      image: "../public/images/braintumor.jpeg",
       tags: [
         "Jupyter Notebook",
         "Python",
@@ -200,11 +200,11 @@ const ProjectDetail = () => {
       ],
       screenshots: [
         "../public/Screenshots/bt1.jpg",
-        "../src/Screenshots/bt2.jpg",
-        "../src/Screenshots/bt3.jpg",
-        "../src/Screenshots/bt4.jpg",
-        "../src/Screenshots/bt5.jpg",
-        "../src/Screenshots/bt6.jpg",
+        "../public/Screenshots/bt2.jpg",
+        "../public/Screenshots/bt3.jpg",
+        "../public/Screenshots/bt4.jpg",
+        "../public/Screenshots/bt5.jpg",
+        "../public/Screenshots/bt6.jpg",
       ],
     },
     "3": {
@@ -214,7 +214,7 @@ const ProjectDetail = () => {
         "This project establishes a robust machine learning framework for the Remaining Useful Life (RUL) prediction of Electric Vehicle (EV) batteries. It utilizes ensemble and deep learning models, such as LightGBM, to achieve high-accuracy forecasts of battery degradation. This system is critical for enabling proactive maintenance, enhancing operational safety, and promoting the sustainable, cost-effective management of EV fleets.",
       fullDescription:
         "This project establishes a robust, automated machine learning pipeline dedicated to forecasting the Remaining Useful Life (RUL) of Electric Vehicle (EV) batteries based on complex operational data. It begins with rigorous data preprocessing, including scaling features and engineering new domain-specific variables like Charge_Discharge_Ratio and Voltage_Gap. Dimensionality reduction via Principal Component Analysis (PCA) is applied to maintain 95% of the variance while optimizing model training efficiency. The core of the project involves evaluating multiple state-of-the-art regression models—XGBoost, Random Forest, LightGBM, and an LSTM deep learning model—to determine the most effective predictor of battery degradation. Performance is systematically measured using RMSE, MAE, and R² scores, demonstrating the high accuracy achievable in predicting battery longevity. The overall goal is to provide a predictive tool for proactive maintenance and better fleet management in the EV industry.",
-      image: "../src/images/evbattery.jpg",
+      image: "../public/images/evbattery.jpg",
       tags: [
         "Jupyter Notebook",
         "Python",
@@ -290,12 +290,12 @@ const ProjectDetail = () => {
         },
       ],
       screenshots: [
-        "../src/Screenshots/bt1.jpg",
-        "../src/Screenshots/bt2.jpg",
-        "../src/Screenshots/bt3.jpg",
-        "../src/Screenshots/bt4.jpg",
-        "../src/Screenshots/bt5.jpg",
-        "../src/Screenshots/bt6.jpg",
+        "../public/Screenshots/bt1.jpg",
+        "../public/Screenshots/bt2.jpg",
+        "../public/Screenshots/bt3.jpg",
+        "../public/Screenshots/bt4.jpg",
+        "../public/Screenshots/bt5.jpg",
+        "../public/Screenshots/bt6.jpg",
       ],
     },
     // other projects unchanged...

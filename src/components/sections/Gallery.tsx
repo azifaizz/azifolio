@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { ZoomIn, X } from "lucide-react";
-import gallery1 from '../src/images/gallery1.png';
 const Gallery = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -19,8 +18,11 @@ const Gallery = () => {
   }, []);
 
   const images = [
-    { url: "../src/images/gallery1.jpg", title: "Kashmir & Me" },
-    { url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c", title: "Coding Setup" },
+    { url: "/images/gallery1.jpg", title: "Kashmir & Me" },
+    {
+      url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+      title: "Coding Setup",
+    },
   ];
 
   return (
@@ -42,7 +44,9 @@ const Gallery = () => {
           {images.map((image, index) => (
             <div
               key={index}
-              className={`scroll-reveal ${isVisible ? "revealed" : ""} relative group glass-card rounded-2xl overflow-hidden hover:glow-primary transition-all duration-300 hover:scale-105`}
+              className={`scroll-reveal ${
+                isVisible ? "revealed" : ""
+              } relative group glass-card rounded-2xl overflow-hidden hover:glow-primary transition-all duration-300 hover:scale-105`}
               style={{ transitionDelay: `${index * 100}ms` }}
               onClick={() => setSelectedImage(image.url)}
             >

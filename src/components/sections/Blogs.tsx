@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import blogimg from "../src/images/blog1.png";
 
 const Blogs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,8 +31,8 @@ const Blogs = () => {
         "Stay focused like never before with a distraction blocker that yells at you when you stray.",
       date: "08-08-2025",
       readTime: "8 min read",
-      image: "./src/images/blog1.png",
-      tags: ["React", "Web Development"],
+      image: "/images/blog1.png",
+      tags: ["codetofun", "Web Development"],
       link: "/blog/distraction-blocker", // link to BlogPost page
     },
   ];
@@ -97,7 +96,10 @@ const Blogs = () => {
 
                 {/* Updated Link */}
                 <a href={blog.link}>
-                  <a className="w-full inline-flex items-center justify-center bg-gradient-primary hover:glow-primary group px-4 py-2 rounded-lg text-white font-semibold transition">
+                  <a
+                    href={blog.link}
+                    className="w-full inline-flex items-center justify-center bg-gradient-primary hover:glow-primary group px-4 py-2 rounded-lg text-white font-semibold transition"
+                  >
                     Read More
                     <ArrowRight
                       size={16}

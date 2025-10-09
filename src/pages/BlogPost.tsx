@@ -6,7 +6,7 @@
 
 import { Volume2, Code, Zap, Smartphone, Clock, BarChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import blogimg from "../images/blog1.png";
+import blogimg from "../public/images/blog1.png";
 
 const BlogPost = () => {
   // Mock data for dynamic rendering (future use)
@@ -55,7 +55,7 @@ const BlogPost = () => {
       <div className="w-full h-[400px] md:h-[500px] lg:h-[600px] relative overflow-hidden animate-fade-in">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-primary/10 to-background z-10"></div>
         <img
-          src={blogimg}
+          src="../public/images/blog1.png"
           alt="Coding workspace with laptop"
           className="w-full h-full object-cover"
         />
