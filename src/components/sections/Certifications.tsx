@@ -15,7 +15,7 @@ const certifications = [
     title: "	ChatGPT for Project Management - Leveraging AI for Success",
     issuer: "Vanderbilt University - Coursera",
     date: "March 8 2025",
-    image: "/images/stjosephcert.jpeg",
+    image: "/images/chatgpt.jpg",
     description:
       "I successfully completed the ChatGPT for Project Management Specialization from Vanderbilt University on Coursera where I learned how to effectively leverage ChatGPT for planning executing and tracking projects apply prompt engineering techniques for better AI responses and gain insights to ensure project success across all stages of management.",
   },
