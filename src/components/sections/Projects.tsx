@@ -30,7 +30,7 @@ const Projects = () => {
       title: "Brain tumor cancer prediction using machine learning",
       description:
         "This project uses machine learning to detect brain tumors from MRI scans.It classifies tumor types accurately, aiding doctors in early diagnosis.The system improves detection speed and reduces manual analysis errors.",
-      image: "/images/braintumor.jpeg",
+      image: "/images/braintumor.jpg",
       github:
         "https://github.com/azifaizz/CNN-Based-Brain-Tumor-Cancer-Prediction-Using-Machine-Learning.git",
       tags: ["JupyterNotebook", "Python", "image recognition"],
@@ -48,7 +48,7 @@ const Projects = () => {
     {
       id: 3,
       title:
-        "Remaining Useful Life prediction for batteries of Electric Vehicle",
+        "Remaining Useful Life prediction for batteries of Electric Vehicle using Machine Learning",
       description:
         "A comprehensive machine learning framework using advanced feature engineering, PCA, and ensemble/deep learning models to accurately predict the Remaining Useful Life (RUL) of Electric Vehicle (EV) batteries, highlighting LightGBMs superior performance.",
       image: "/images/evbattery.jpg",
