@@ -117,81 +117,79 @@ const ProjectDetail = () => {
       ],
     },
     "2": {
-      title: "Brain tumor cancer prediction using machine learning",
+      title: "SecureFileX:A Comprehensive file security Application",
       description:
-        "This project uses machine learning to detect brain tumors from MRI scans.It classifies tumor types accurately, aiding doctors in early diagnosis.The system improves detection speed and reduces manual analysis errors.",
+        "This project is a security-focused web application built using Flask. It provides features like file encryption, decryption, QR code generation, and malware hash scanning with user authentication.",
       fullDescription:
         "This is the project description converted into a single, easy-to-read paragraph, perfect for a portfolio.This project showcases an Automated Brain Tumor Classification system built using Deep Learning. The main objective was to create a reliable solution that can quickly and accurately analyze an MRI image and classify it as having a Tumor or No Tumor. We used a Convolutional Neural Network (CNN), the ideal architecture for image analysis, and trained it on a dataset of over 3,000 brain scans. The process involved crucial steps like image augmentation and using smart training callbacks such as ModelCheckpoint and ReduceLROnPlateau to ensure the model achieved high performance and stability. The final, optimized model was saved as an .h5 file and is deployed through a Streamlit web application, allowing users (including recruiters) to upload an image and receive a real-time prediction, demonstrating the full end-to-end pipeline from development to deployment.",
-      image: "../public/images/braintumor.jpeg",
+      image: "/images/securefile.jpeg",
       tags: [
-        "Jupyter Notebook",
+        "Flask",
         "Python",
-        "Numpy",
-        "Pandas",
-        "Image recognition",
-        "Median Filter",
-        "Express",
+        "Web Application",
+        "Cybersecurity",
+        "Encryption",
+        "QR Code Generator",
+        "Malware Detection",
       ],
-      github: "https://github.com",
+      github:
+        "https://github.com/azifaizz/SecureFileX-A-Comprehensive-File-Security-Application.git",
       demo: "https://example.com",
-      date: "March 2023",
-      team: "3 members",
-      role: "Model Trainer",
+      date: "Nov 2024",
+      team: "1 members",
+      role: "Developer",
       features: [
-        "High-Performance CNN Architecture",
-        "Web Deployment (Streamlit/Live Demo)",
-        "Advanced Model Optimization (Callbacks & Regularization)",
-        "Robust Data Augmentation & Preprocessing",
-        "Real-Time Classification with Confidence Score",
-        "Full ML Pipeline Showcase (Development to Production)",
-        "Binary Classification for Clarity",
-        "Leverages TensorFlow/Keras Framework",
+        "User Authentication and Secure Access (Flask-Login)",
+        "File Encryption & Decryption with AES Algorithm",
+        "Text Message Encryption and Decryption",
+        "QR Code Generation for Encrypted Data Sharing",
+        "Malware Hash Scanning and Detection",
+        "Database Integration for User and File Management",
+        "Modular Architecture for Easy Maintenance and Expansion",
+        "Simple UI with Option to Migrate to Streamlit Frontend",
+        "Supports Multiple File Types and Real-Time Processing",
+        "Ready for Deployment and Scalability",
       ],
       technologies: [
         {
-          name: "TensorFlow",
+          name: "Python",
           description:
-            "The foundational deep learning library for building and executing the model's computational graph.",
+            "The primary programming language used to build the entire backend, handle security operations, and integrate all modules.",
         },
         {
-          name: "Keras",
+          name: "Flask",
           description:
-            "The high-level API (integrated into TensorFlow) used for quickly defining the Sequential CNN model structure and layers.",
+            "A lightweight Python web framework used to handle routing, authentication, and backend logic.",
         },
         {
-          name: "Convolutional Neural Networks (CNN)",
+          name: "SQLite",
           description:
-            "The specific type of neural network architecture used for feature extraction and image classification.",
+            "A simple and reliable relational database used to securely store user credentials and file information.",
         },
         {
-          name: "HDF5 (.h5 format)",
+          name: "SQLAlchemy",
           description:
-            "The standard file format used for saving and loading the trained Keras model, including its architecture and learned weights.",
+            "An ORM (Object Relational Mapper) that simplifies database operations and ensures clean, maintainable code.",
         },
         {
-          name: "NumPy",
+          name: "Flask-Login",
           description:
-            "Essential library for high-performance array and matrix operations, fundamental for handling image data and predictions.",
+            "A Flask extension used to manage user authentication, sessions, and access control securely.",
         },
         {
-          name: "Matplotlib",
+          name: "PyCryptodome",
           description:
-            "Used for data visualization, specifically plotting the training loss and accuracy history after the model has trained.",
+            "A Python cryptographic library used to implement AES encryption and decryption for files and text data.",
         },
         {
-          name: "ImageDataGenerator",
+          name: "qrcode",
           description:
-            "A Keras utility used for real-time data augmentation and efficient loading of image data during training.",
+            "A Python library used to generate QR codes for sharing encrypted data in a secure and compact form.",
         },
         {
           name: "Streamlit",
           description:
-            "The Python framework used to quickly build and host the interactive web application (the front-end interface) for the live demo.",
-        },
-        {
-          name: "Python",
-          description:
-            "The primary programming language used to write the entire project, including the training notebook and the deployment script.",
+            "A Python framework used to build a simple, clean, and interactive frontend interface for the application.",
         },
       ],
       screenshots: [
@@ -210,7 +208,7 @@ const ProjectDetail = () => {
         "This project establishes a robust machine learning framework for the Remaining Useful Life (RUL) prediction of Electric Vehicle (EV) batteries. It utilizes ensemble and deep learning models, such as LightGBM, to achieve high-accuracy forecasts of battery degradation. This system is critical for enabling proactive maintenance, enhancing operational safety, and promoting the sustainable, cost-effective management of EV fleets.",
       fullDescription:
         "This project establishes a robust, automated machine learning pipeline dedicated to forecasting the Remaining Useful Life (RUL) of Electric Vehicle (EV) batteries based on complex operational data. It begins with rigorous data preprocessing, including scaling features and engineering new domain-specific variables like Charge_Discharge_Ratio and Voltage_Gap. Dimensionality reduction via Principal Component Analysis (PCA) is applied to maintain 95% of the variance while optimizing model training efficiency. The core of the project involves evaluating multiple state-of-the-art regression models—XGBoost, Random Forest, LightGBM, and an LSTM deep learning model—to determine the most effective predictor of battery degradation. Performance is systematically measured using RMSE, MAE, and R² scores, demonstrating the high accuracy achievable in predicting battery longevity. The overall goal is to provide a predictive tool for proactive maintenance and better fleet management in the EV industry.",
-      image: "../public/images/evbattery.jpg",
+      image: "/images/evbattery.jpg",
       tags: [
         "Jupyter Notebook",
         "Python",
@@ -291,7 +289,7 @@ const ProjectDetail = () => {
         "/Screenshots/bt3.jpg",
         "/Screenshots/bt4.jpg",
         "/Screenshots/bt5.jpg",
-        "/Screenshots/bt6.jpg",
+        "/Screenshots/rul6.jpg",
       ],
     },
     // other projects unchanged...

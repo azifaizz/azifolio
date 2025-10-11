@@ -25,7 +25,7 @@ const Experience = () => {
   const experiences = [
     {
       role: "Full Stack Developer(Intern)",
-      company: "White Track Technologies",
+      company: "White Track Technologies,Trivandrum",
       duration: "Sep 2025 - Present",
       description:
         "Developing and maintaining web applications by writing HTML, CSS, JavaScript and Java, managing databases, and ensuring smooth functionality and user experience.",
