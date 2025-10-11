@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import BlogPost from "./pages/BlogPost.tsx";
 import Blogs from "../src/components/sections/Blogs";
 
+
 const queryClient = new QueryClient();
 
 const App = () => (
