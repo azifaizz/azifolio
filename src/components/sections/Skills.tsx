@@ -3,7 +3,6 @@ import {
   Code,
   Database,
   Layout,
-  Server,
   Palette,
   Users,
   Lightbulb,
@@ -11,6 +10,23 @@ import {
   Brain,
   FileCode,
   PencilRuler,
+  BookPlus,
+  Smile,
+  Goal,
+  Route,
+  Timer,
+  FileCog,
+  Eclipse,
+  Braces,
+  BrainCircuit,
+  FolderGit2,
+  FolderGit,
+  FileBox,
+  Framer,
+  Figma,
+  Component,
+  Brackets,
+  Bug,
 } from "lucide-react";
 
 const Skills = () => {
@@ -19,29 +35,42 @@ const Skills = () => {
   const toolsRef = useRef<HTMLDivElement>(null);
 
   const hardSkills = [
-    { icon: Code, name: "Python" },
-    { icon: Server, name: "Node.js & Express" },
-    { icon: Database, name: "MySQL" },
-    { icon: Layout, name: "UI/UX Design" },
-    { icon: Palette, name: "Tailwind & CSS" },
     { icon: FileCode, name: "HTML5" },
+    { icon: Palette, name: "CSS" },
+    { icon: FileCog, name: "Tailwind CSS" },
+    { icon: Eclipse, name: "Boot Strap" },
+    { icon: Database, name: "MySQL DataBase" },
+    { icon: Code, name: "Java Script" },
+    { icon: FileCode, name: "Java" },
+    { icon: Braces, name: "Python" },
+    { icon: BrainCircuit, name: "Machine Learning Basics" },
+    { icon: FolderGit2, name: "Version Control & CLI" },
+    { icon: Layout, name: "UI/UX Design" },
   ];
 
   const softSkills = [
     { icon: Users, name: "Team Collaboration" },
     { icon: Lightbulb, name: "Problem Solving" },
     { icon: MessageSquare, name: "Communication" },
-    { icon: Code, name: "Adaptability" },
-    { icon: Brain, name: "Time Management" },
+    { icon: Smile, name: "Adaptability" },
+    { icon: Timer, name: "Time Management" },
     { icon: Brain, name: "Creativity" },
-    { icon: Brain, name: "Leadership" },
+    { icon: Route, name: "Leadership" },
+    { icon: Goal, name: "Goal Orientation" },
+    { icon: BookPlus, name: "Learning Mindset" },
   ];
 
   const tools = [
+    { icon: Bug, name: "Visual Studio Code" },
+    { icon: Brackets, name: "Jupyter Notebook" },
+    { icon: Component, name: "PyCharm" },
+    { icon: Bug, name: "Eclipse IDE" },
+    { icon: FolderGit, name: "git" },
+    { icon: FileBox, name: "Huggin face" },
     { icon: PencilRuler, name: "Adobe Photoshop" },
-    { icon: Layout, name: "Figma" },
-    { icon: Server, name: "Framer" },
-    { icon: Code, name: "Canva" },
+    { icon: Figma, name: "Figma" },
+    { icon: Framer, name: "Framer" },
+    { icon: Component, name: "Canva" },
   ];
 
   // Scroll animation
@@ -52,10 +81,14 @@ const Skills = () => {
     let toolsScroll = 0;
 
     const animate = () => {
-      const loop = (ref: HTMLDivElement | null, scroll: number, reverse = false) => {
+      const loop = (
+        ref: HTMLDivElement | null,
+        scroll: number,
+        reverse = false
+      ) => {
         if (!ref) return scroll;
         // True infinite: clone until scrollWidth > 2 * container width
-        const scrollWidth = ref.scrollWidth / 2; 
+        const scrollWidth = ref.scrollWidth / 2;
         scroll = reverse
           ? (scroll - speed + scrollWidth) % scrollWidth
           : (scroll + speed) % scrollWidth;
@@ -96,7 +129,9 @@ const Skills = () => {
         key={skill.name + type + Math.random()} // ensure unique keys
         className="flex-shrink-0 glass-card p-6 rounded-2xl transition-all duration-300 w-48 sm:w-56 md:w-60 text-center mx-2"
       >
-        <div className={`glass-card p-4 rounded-xl ${glowClass} inline-block mb-4`}>
+        <div
+          className={`glass-card p-4 rounded-xl ${glowClass} inline-block mb-4`}
+        >
           <Icon size={32} className={textClass} />
         </div>
         <h4 className="font-semibold">{skill.name}</h4>
@@ -111,12 +146,13 @@ const Skills = () => {
   ) => {
     // Duplicate items enough times to fill container and allow smooth infinite scroll
     const repeatCount = 6; // increase if needed for smaller arrays
-    const duplicated = Array(repeatCount)
-      .fill(skills)
-      .flat();
+    const duplicated = Array(repeatCount).fill(skills).flat();
 
     return (
-      <div ref={ref} className="flex gap-6 overflow-hidden whitespace-nowrap px-4">
+      <div
+        ref={ref}
+        className="flex gap-6 overflow-hidden whitespace-nowrap px-4"
+      >
         {duplicated.map((skill) => renderCard(skill, type))}
       </div>
     );

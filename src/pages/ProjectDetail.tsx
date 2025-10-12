@@ -134,7 +134,7 @@ const ProjectDetail = () => {
       ],
       github:
         "https://github.com/azifaizz/SecureFileX-A-Comprehensive-File-Security-Application.git",
-      demo: "https://example.com",
+      demo: "https://rul-live.netlify.app/",
       date: "Nov 2024",
       team: "1 members",
       role: "Developer",
@@ -223,7 +223,7 @@ const ProjectDetail = () => {
       ],
       github:
         "https://github.com/azifaizz/Remaining-Useful-Life-prediction-for-batteries-of-Electric-Vehicle.git",
-      demo: "https://example.com",
+      demo: "https://rul-live.netlify.app/",
       date: "May 2025",
       team: "1 member",
       role: "Developer",
