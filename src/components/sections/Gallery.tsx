@@ -10,7 +10,7 @@ const Gallery = () => {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -19,10 +19,8 @@ const Gallery = () => {
 
   const images = [
     { url: "/images/gallery1.jpg", title: "Kashmir & Me" },
-    {
-      url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
-      title: "Coding Setup",
-    },
+    { url: "/images/graduationstage.jpg", title: "Coding Setup" },
+    { url: "/images/graduation1.jpg", title: "Coding Setup" },
   ];
 
   return (

@@ -26,7 +26,7 @@ const Hero = () => {
         setDisplayText(
           isDeleting
             ? profession.substring(0, displayText.length - 1)
-            : profession.substring(0, displayText.length + 1)
+            : profession.substring(0, displayText.length + 1),
         );
       }
     }, typingSpeed);
@@ -65,7 +65,10 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">
-              <a href="/cv/mhd_aseel_py.pdf" download="Mohmd_Aseel_py.pdf">
+              <a
+                href="/cv/Aseel_fullstack_fresher.pdf"
+                download="Mohmd_Aseel_py.pdf"
+              >
                 <Button className="bg-gradient-primary glow-primary hover:scale-105 transition-transform flex items-center">
                   <Download className="mr-2" size={20} />
                   Download CV
