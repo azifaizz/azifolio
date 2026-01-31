@@ -40,7 +40,7 @@ const Skills = () => {
     { icon: FileCog, name: "Tailwind CSS" },
     { icon: Eclipse, name: "Boot Strap" },
     { icon: Database, name: "MySQL DataBase" },
-    { icon: Code, name: "Java Script" },
+    { icon: Code, name: "JavaScript(Basics)" },
     { icon: FileCode, name: "Java" },
     { icon: Braces, name: "Python" },
     { icon: BrainCircuit, name: "Machine Learning Basics" },
@@ -75,7 +75,7 @@ const Skills = () => {
 
   // Scroll animation
   useEffect(() => {
-    const speed = 0.5;
+    const speed = 1.5;
     let hardScroll = 0;
     let softScroll = 0;
     let toolsScroll = 0;
@@ -84,7 +84,7 @@ const Skills = () => {
       const loop = (
         ref: HTMLDivElement | null,
         scroll: number,
-        reverse = false
+        reverse = false,
       ) => {
         if (!ref) return scroll;
         // True infinite: clone until scrollWidth > 2 * container width
@@ -108,21 +108,21 @@ const Skills = () => {
 
   const renderCard = (
     skill: { icon: any; name: string },
-    type: "hard" | "soft" | "tools"
+    type: "hard" | "soft" | "tools",
   ) => {
     const Icon = skill.icon;
     const glowClass =
       type === "hard"
         ? "glow-primary"
         : type === "soft"
-        ? "glow-secondary"
-        : "glow-primary";
+          ? "glow-secondary"
+          : "glow-primary";
     const textClass =
       type === "hard"
         ? "text-primary"
         : type === "soft"
-        ? "text-secondary"
-        : "text-primary";
+          ? "text-secondary"
+          : "text-primary";
 
     return (
       <div
@@ -142,7 +142,7 @@ const Skills = () => {
   const renderScroller = (
     skills: any[],
     type: "hard" | "soft" | "tools",
-    ref: React.RefObject<HTMLDivElement>
+    ref: React.RefObject<HTMLDivElement>,
   ) => {
     // Duplicate items enough times to fill container and allow smooth infinite scroll
     const repeatCount = 6; // increase if needed for smaller arrays
