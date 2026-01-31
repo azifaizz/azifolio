@@ -19,8 +19,8 @@ const Gallery = () => {
 
   const images = [
     { url: "/images/gallery1.jpg", title: "Kashmir & Me" },
-    { url: "/images/graduationstage.jpg", title: "Coding Setup" },
-    { url: "/images/graduation1.jpg", title: "Coding Setup" },
+    { url: "/images/graduationstage.jpg", title: "Graduation on Stage" },
+    { url: "/images/graduation1.jpg", title: "Graduation" },
   ];
 
   return (
