@@ -43,7 +43,7 @@ const Skills = () => {
     { icon: Code, name: "JavaScript(Basics)" },
     { icon: FileCode, name: "Java" },
     { icon: Braces, name: "Python" },
-    { icon: BrainCircuit, name: "Machine Learning Basics" },
+    { icon: BrainCircuit, name: "Deep Learning Basics" },
     { icon: FolderGit2, name: "Version Control & CLI" },
     { icon: Layout, name: "UI/UX Design" },
   ];
