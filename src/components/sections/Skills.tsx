@@ -66,7 +66,7 @@ const Skills = () => {
     { icon: Component, name: "PyCharm" },
     { icon: Bug, name: "Eclipse IDE" },
     { icon: FolderGit, name: "git" },
-    { icon: FileBox, name: "Huggin face" },
+    { icon: FileBox, name: "Hugging face" },
     { icon: PencilRuler, name: "Adobe Photoshop" },
     { icon: Figma, name: "Figma" },
     { icon: Framer, name: "Framer" },
