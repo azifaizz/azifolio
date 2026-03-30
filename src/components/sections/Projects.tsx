@@ -1,103 +1,50 @@
-import { useEffect, useRef, useState } from "react";
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SectionHeading from "@/components/shared/SectionHeading";
+import { projects } from "@/data/projects";
+import { useSectionReveal } from "@/hooks/use-section-reveal";
 import { useNavigate } from "react-router-dom";
+
 const Projects = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const projects = [
-    {
-      id: 1,
-      title: "Brain tumor cancer prediction using machine learning",
-      description:
-        "This project uses machine learning to detect brain tumors from MRI scans.It classifies tumor types accurately, aiding doctors in early diagnosis.The system improves detection speed and reduces manual analysis errors.",
-      image: "/images/braintumor.jpg",
-      github:
-        "https://github.com/azifaizz/CNN-Based-Brain-Tumor-Cancer-Prediction-Using-Machine-Learning.git",
-      tags: ["JupyterNotebook", "Python", "image recognition"],
-    },
-    {
-      id: 2,
-      title: "SecureFileX:A Comprehensive file security Application",
-      description:
-        "SecureFileX is a file security application that lets users encrypt and decrypt files effortlessly. It keeps sensitive data protected from unauthorized access. Designed for simplicity, it safeguards your files with strong encryption.",
-      image: "/images/securefile.jpeg",
-      github:
-        "https://github.com/azifaizz/SecureFileX-A-Comprehensive-File-Security-Application.git",
-      tags: ["HTML", "CSS", "Python", "Flask Framework"],
-    },
-    {
-      id: 3,
-      title:
-        "Remaining Useful Life prediction for batteries of Electric Vehicle using Machine Learning",
-      description:
-        "A comprehensive machine learning framework using advanced feature engineering, PCA, and ensemble/deep learning models to accurately predict the Remaining Useful Life (RUL) of Electric Vehicle (EV) batteries, highlighting LightGBMs superior performance.",
-      image: "/images/evbattery.jpg",
-      github:
-        "https://github.com/azifaizz/Remaining-Useful-Life-prediction-for-batteries-of-Electric-Vehicle.git",
-      tags: ["Jupyter Notebook", "Python", "Machine Learning"],
-    },
-  ];
+  const { ref, isVisible } = useSectionReveal<HTMLElement>();
 
   return (
-    <section id="projects" ref={sectionRef} className="min-h-screen py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h2
-          className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
-          Featured <span className="gradient-text">Projects</span>
-        </h2>
+    <section id="projects" ref={ref} className="min-h-screen px-4 py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-16">
+          <SectionHeading title="Featured" accent="Projects" isVisible={isVisible} />
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={`scroll-reveal ${
-                isVisible ? "revealed" : ""
-              } glass-card rounded-2xl overflow-hidden hover:glow-primary transition-all duration-300 hover:scale-105`}
+              className={`overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105 hover:glow-primary glass-card ${
+                isVisible ? "scroll-reveal revealed" : "scroll-reveal"
+              }`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               <div className="relative overflow-hidden group">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-70" />
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4 text-justify">
+                <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
+                <p className="mb-4 text-sm text-justify text-muted-foreground">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="mb-4 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="glass-card px-3 py-1 text-xs rounded-full text-primary"
+                      className="rounded-full px-3 py-1 text-xs text-primary glass-card"
                     >
                       {tag}
                     </span>
@@ -114,8 +61,10 @@ const Projects = () => {
                   </Button>
                   <Button
                     variant="outline"
-                    onClick={() => window.open(project.github, "_blank")}
-                    className="glass-card border-primary/30 hover:glow-primary"
+                    onClick={() =>
+                      window.open(project.github, "_blank", "noopener,noreferrer")
+                    }
+                    className="border-primary/30 glass-card hover:glow-primary"
                   >
                     <Github size={16} />
                   </Button>

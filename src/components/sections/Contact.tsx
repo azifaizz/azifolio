@@ -1,138 +1,88 @@
-import { useEffect, useRef, useState } from "react";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  Github,
-  Linkedin,
-  Twitter,
-  Instagram,
-} from "lucide-react";
+import { useRef, useState } from "react";
+import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import SectionHeading from "@/components/shared/SectionHeading";
+import { contactInfo, socialLinks } from "@/data/portfolio-content";
+import { useSectionReveal } from "@/hooks/use-section-reveal";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "emailjs-com";
 
+const emailJsConfig = {
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID ?? "service_dqfrq8i",
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID ?? "template_cppk0qc",
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY ?? "PsD-zmIH5vOD6CSQQ",
+};
+
 const Contact = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { ref, isVisible } = useSectionReveal<HTMLElement>();
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!formRef.current) return;
+    if (!formRef.current || isSubmitting) {
+      return;
+    }
 
-    emailjs
-      .sendForm(
-        "service_dqfrq8i", // EmailJS service ID
-        "template_cppk0qc", // EmailJS template ID
+    try {
+      setIsSubmitting(true);
+
+      await emailjs.sendForm(
+        emailJsConfig.serviceId,
+        emailJsConfig.templateId,
         formRef.current,
-        "PsD-zmIH5vOD6CSQQ" // EmailJS public key
-      )
-      .then(
-        () => {
-          toast({
-            title: "Message Sent!",
-            description:
-              "Thank you for reaching out. I'll get back to you soon.",
-          });
-          formRef.current?.reset();
-        },
-        (error) => {
-          toast({
-            title: "Error",
-            description: "Something went wrong. Please try again later.",
-            variant: "destructive",
-          });
-          console.error(error.text);
-        }
+        emailJsConfig.publicKey,
       );
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      formRef.current.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      text: "aseelfaizzin1@gmail.com",
-      href: "mailto:aseelfaizzin1@gmail.com",
-    },
-    { icon: Phone, text: "+91 9786890102", href: "tel:+91 9786890102" },
-    {
-      icon: MapPin,
-      text: "Kanyakumari,Tamil Nadu",
-      href: "https://www.google.com/maps/place/Kanniyakumari,+Tamil+Nadu/@8.086444,77.5252707,14z/data=!3m1!4b1!4m6!3m5!1s0x3b04ed3d2a087861:0x1e790e896aeffaa0!8m2!3d8.0843512!4d77.5495019!16zL20vMDF0eG1s?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D",
-    },
-  ];
-
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/azifaizz", label: "GitHub" },
-    {
-      icon: Linkedin,
-      href: "https://linkedin.com/in/azifaizz",
-      label: "LinkedIn",
-    },
-    { icon: Twitter, href: "https://x.com/azifaizz", label: "Twitter" },
-    {
-      icon: Instagram,
-      href: "https://www.instagram.com/azifaizz/",
-      label: "Instagram",
-    },
-  ];
-
   return (
-    <section id="contact" ref={sectionRef} className="min-h-screen py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h2
-          className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
-          Get In <span className="gradient-text">Touch</span>
-        </h2>
+    <section id="contact" ref={ref} className="min-h-screen px-4 py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-16">
+          <SectionHeading title="Get In" accent="Touch" isVisible={isVisible} />
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Info & Social Links */}
-          <div
-            className={`scroll-reveal ${isVisible ? "revealed" : ""} space-y-8`}
-          >
+        <div className="grid gap-12 md:grid-cols-2">
+          <div className={isVisible ? "scroll-reveal revealed space-y-8" : "scroll-reveal space-y-8"}>
             <div>
-              <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
-              <p className="text-muted-foreground mb-8">
+              <h3 className="mb-6 text-2xl font-bold">Let's Connect</h3>
+              <p className="mb-8 text-muted-foreground">
                 I'm always open to discussing new projects, creative ideas, or
                 opportunities to be part of your vision.
               </p>
             </div>
 
             <div className="space-y-4">
-              {contactInfo.map((info, index) => {
+              {contactInfo.map((info) => {
                 const Icon = info.icon;
+
                 return (
                   <a
-                    key={index}
+                    key={info.text}
                     href={info.href}
-                    className="glass-card p-4 rounded-xl flex items-center gap-4 hover:glow-primary transition-all duration-300 hover:scale-105"
+                    className="flex items-center gap-4 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:glow-primary glass-card"
                   >
-                    <div className="glass-card p-3 rounded-lg glow-primary">
+                    <div className="rounded-lg p-3 glow-primary glass-card">
                       <Icon size={20} className="text-primary" />
                     </div>
                     <span>{info.text}</span>
@@ -142,17 +92,18 @@ const Contact = () => {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4">Follow Me</h4>
+              <h4 className="mb-4 text-lg font-semibold">Follow Me</h4>
               <div className="flex gap-4">
-                {socialLinks.map((social, index) => {
+                {socialLinks.map((social) => {
                   const Icon = social.icon;
+
                   return (
                     <a
-                      key={index}
+                      key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="glass-card p-4 rounded-xl hover:glow-primary transition-all duration-300 hover:scale-110"
+                      className="rounded-xl p-4 transition-all duration-300 hover:scale-110 hover:glow-primary glass-card"
                       aria-label={social.label}
                     >
                       <Icon size={20} />
@@ -163,53 +114,46 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div
-            className={`scroll-reveal ${isVisible ? "revealed" : ""}`}
+            className={isVisible ? "scroll-reveal revealed" : "scroll-reveal"}
             style={{ transitionDelay: "200ms" }}
           >
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="glass-card p-8 rounded-2xl space-y-6"
+              className="space-y-6 rounded-2xl p-8 glass-card"
             >
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label htmlFor="name" className="mb-2 block text-sm font-medium">
                   Your Name
                 </label>
                 <Input
                   id="name"
                   name="user_name"
-                  placeholder="your name"
+                  placeholder="Your name"
                   required
-                  className="glass-card border-primary/30 focus:glow-primary"
+                  className="border-primary/30 glass-card"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label htmlFor="email" className="mb-2 block text-sm font-medium">
                   Email Address
                 </label>
                 <Input
                   id="email"
                   name="user_email"
                   type="email"
-                  placeholder="your email@example.com"
+                  placeholder="your.email@example.com"
                   required
-                  className="glass-card border-primary/30 focus:glow-primary"
+                  className="border-primary/30 glass-card"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="mb-2 block text-sm font-medium"
                 >
                   Message
                 </label>
@@ -219,18 +163,19 @@ const Contact = () => {
                   placeholder="Your message here..."
                   rows={5}
                   required
-                  className="glass-card border-primary/30 focus:glow-primary resize-none"
+                  className="resize-none border-primary/30 glass-card"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-primary hover:glow-primary group"
+                disabled={isSubmitting}
+                className="group w-full bg-gradient-primary hover:glow-primary"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
                 <Send
                   size={16}
-                  className="ml-2 group-hover:translate-x-1 transition-transform"
+                  className="ml-2 transition-transform group-hover:translate-x-1"
                 />
               </Button>
             </form>
@@ -238,11 +183,10 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <div className="mt-20 text-center text-muted-foreground">
         <p>
-          &copy; 2025 <span className="text-primary"> R. Mohamed Aseel..</span>
-           All rights reserved.
+          &copy; 2025 <span className="text-primary">R. Mohamed Aseel</span>. All
+          rights reserved.
         </p>
       </div>
     </section>

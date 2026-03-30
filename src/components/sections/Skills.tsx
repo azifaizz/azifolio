@@ -1,191 +1,119 @@
 import { useEffect, useRef } from "react";
+import SectionHeading from "@/components/shared/SectionHeading";
 import {
-  Code,
-  Database,
-  Layout,
-  Palette,
-  Users,
-  Lightbulb,
-  MessageSquare,
-  Brain,
-  FileCode,
-  PencilRuler,
-  BookPlus,
-  Smile,
-  Goal,
-  Route,
-  Timer,
-  FileCog,
-  Eclipse,
-  Braces,
-  BrainCircuit,
-  FolderGit2,
-  FolderGit,
-  FileBox,
-  Framer,
-  Figma,
-  Component,
-  Brackets,
-  Bug,
-} from "lucide-react";
+  skillGroups,
+  type SkillCategoryKey,
+  type SkillItem,
+} from "@/data/portfolio-content";
 
 const Skills = () => {
   const hardRef = useRef<HTMLDivElement>(null);
   const softRef = useRef<HTMLDivElement>(null);
   const toolsRef = useRef<HTMLDivElement>(null);
 
-  const hardSkills = [
-    { icon: FileCode, name: "HTML5" },
-    { icon: Palette, name: "CSS" },
-    { icon: FileCog, name: "Tailwind CSS" },
-    { icon: Eclipse, name: "Boot Strap" },
-    { icon: Database, name: "MySQL DataBase" },
-    { icon: Code, name: "JavaScript(Basics)" },
-    { icon: FileCode, name: "Java" },
-    { icon: Braces, name: "Python" },
-    { icon: BrainCircuit, name: "Deep Learning Basics" },
-    { icon: FolderGit2, name: "Version Control & CLI" },
-    { icon: Layout, name: "UI/UX Design" },
-  ];
-
-  const softSkills = [
-    { icon: Users, name: "Team Collaboration" },
-    { icon: Lightbulb, name: "Problem Solving" },
-    { icon: MessageSquare, name: "Communication" },
-    { icon: Smile, name: "Adaptability" },
-    { icon: Timer, name: "Time Management" },
-    { icon: Brain, name: "Creativity" },
-    { icon: Route, name: "Leadership" },
-    { icon: Goal, name: "Goal Orientation" },
-    { icon: BookPlus, name: "Learning Mindset" },
-  ];
-
-  const tools = [
-    { icon: Bug, name: "Visual Studio Code" },
-    { icon: Brackets, name: "Jupyter Notebook" },
-    { icon: Component, name: "PyCharm" },
-    { icon: Bug, name: "Eclipse IDE" },
-    { icon: FolderGit, name: "git" },
-    { icon: FileBox, name: "Hugging face" },
-    { icon: PencilRuler, name: "Adobe Photoshop" },
-    { icon: Figma, name: "Figma" },
-    { icon: Framer, name: "Framer" },
-    { icon: Component, name: "Canva" },
-  ];
-
-  // Scroll animation
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     const speed = 1.5;
-    let hardScroll = 0;
-    let softScroll = 0;
-    let toolsScroll = 0;
+    const positions: Record<SkillCategoryKey, number> = {
+      hard: 0,
+      soft: 0,
+      tools: 0,
+    };
+    let animationFrameId = 0;
 
     const animate = () => {
-      const loop = (
-        ref: HTMLDivElement | null,
-        scroll: number,
-        reverse = false,
-      ) => {
-        if (!ref) return scroll;
-        // True infinite: clone until scrollWidth > 2 * container width
-        const scrollWidth = ref.scrollWidth / 2;
-        scroll = reverse
-          ? (scroll - speed + scrollWidth) % scrollWidth
-          : (scroll + speed) % scrollWidth;
-        ref.scrollLeft = scroll;
-        return scroll;
-      };
+      (
+        [
+          ["hard", hardRef],
+          ["soft", softRef],
+          ["tools", toolsRef],
+        ] as Array<
+        [SkillCategoryKey, React.RefObject<HTMLDivElement>]
+      >).forEach(([key, ref]) => {
+        const element = ref.current;
 
-      hardScroll = loop(hardRef.current, hardScroll);
-      softScroll = loop(softRef.current, softScroll, true);
-      toolsScroll = loop(toolsRef.current, toolsScroll);
+        if (!element) {
+          return;
+        }
 
-      requestAnimationFrame(animate);
+        const scrollWidth = element.scrollWidth / 2;
+        const isReverse = key === "soft";
+        positions[key] = isReverse
+          ? (positions[key] - speed + scrollWidth) % scrollWidth
+          : (positions[key] + speed) % scrollWidth;
+        element.scrollLeft = positions[key];
+      });
+
+      animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   const renderCard = (
-    skill: { icon: any; name: string },
-    type: "hard" | "soft" | "tools",
+    skill: SkillItem,
+    category: SkillCategoryKey,
+    key: string,
   ) => {
     const Icon = skill.icon;
-    const glowClass =
-      type === "hard"
-        ? "glow-primary"
-        : type === "soft"
-          ? "glow-secondary"
-          : "glow-primary";
-    const textClass =
-      type === "hard"
-        ? "text-primary"
-        : type === "soft"
-          ? "text-secondary"
-          : "text-primary";
+    const accentClass = category === "soft" ? "text-secondary" : "text-primary";
+    const glowClass = category === "soft" ? "glow-secondary" : "glow-primary";
 
     return (
       <div
-        key={skill.name + type + Math.random()} // ensure unique keys
-        className="flex-shrink-0 glass-card p-6 rounded-2xl transition-all duration-300 w-48 sm:w-56 md:w-60 text-center mx-2"
+        key={key}
+        className="mx-2 w-48 flex-shrink-0 rounded-2xl p-6 text-center transition-all duration-300 glass-card sm:w-56 md:w-60"
       >
-        <div
-          className={`glass-card p-4 rounded-xl ${glowClass} inline-block mb-4`}
-        >
-          <Icon size={32} className={textClass} />
+        <div className={`mb-4 inline-block rounded-xl p-4 glass-card ${glowClass}`}>
+          <Icon size={32} className={accentClass} />
         </div>
         <h4 className="font-semibold">{skill.name}</h4>
       </div>
     );
   };
 
-  const renderScroller = (
-    skills: any[],
-    type: "hard" | "soft" | "tools",
-    ref: React.RefObject<HTMLDivElement>,
-  ) => {
-    // Duplicate items enough times to fill container and allow smooth infinite scroll
-    const repeatCount = 6; // increase if needed for smaller arrays
-    const duplicated = Array(repeatCount).fill(skills).flat();
+  const renderScroller = (items: SkillItem[], category: SkillCategoryKey) => {
+    const duplicated = Array.from({ length: 6 }, (_, groupIndex) =>
+      items.map((skill) => ({
+        ...skill,
+        key: `${category}-${skill.name}-${groupIndex}`,
+      })),
+    ).flat();
 
     return (
       <div
-        ref={ref}
+        ref={
+          category === "hard" ? hardRef : category === "soft" ? softRef : toolsRef
+        }
         className="flex gap-6 overflow-hidden whitespace-nowrap px-4"
       >
-        {duplicated.map((skill) => renderCard(skill, type))}
+        {duplicated.map((skill) => renderCard(skill, category, skill.key))}
       </div>
     );
   };
 
   return (
-    <section id="skills" className="min-h-screen py-20 px-0">
-      <div className="max-w-full mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-          My <span className="gradient-text">Skills</span>
-        </h2>
-
-        {/* Hard Skills */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold mb-6 text-primary px-4">
-            Technical Skills
-          </h3>
-          {renderScroller(hardSkills, "hard", hardRef)}
+    <section id="skills" className="min-h-screen px-0 py-20">
+      <div className="mx-auto max-w-full px-4">
+        <div className="mb-16">
+          <SectionHeading title="My" accent="Skills" />
         </div>
 
-        {/* Soft Skills */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold mb-6 text-secondary px-4">
-            Soft Skills
-          </h3>
-          {renderScroller(softSkills, "soft", softRef)}
-        </div>
-
-        {/* Tools */}
-        <div>
-          <h3 className="text-2xl font-bold mb-6 text-primary px-4">Tools</h3>
-          {renderScroller(tools, "tools", toolsRef)}
-        </div>
+        {skillGroups.map((group) => (
+          <div key={group.key} className="mb-12 last:mb-0">
+            <h3 className={`mb-6 px-4 text-2xl font-bold ${group.accentClass}`}>
+              {group.title}
+            </h3>
+            {renderScroller(group.items, group.key)}
+          </div>
+        ))}
       </div>
     </section>
   );

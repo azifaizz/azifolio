@@ -1,104 +1,71 @@
-import { useEffect, useRef, useState } from "react";
-import { Briefcase, Calendar } from "lucide-react";
+import SectionHeading from "@/components/shared/SectionHeading";
+import { experienceItems } from "@/data/portfolio-content";
+import { useSectionReveal } from "@/hooks/use-section-reveal";
 
 const Experience = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const experiences = [
-    {
-      role: "Full Stack Developer(Intern)",
-      company: "White Track Technologies,Trivandrum",
-      duration: "Sep 2025 - Present",
-      description:
-        "Developing and maintaining web applications by writing HTML, CSS, JavaScript and Java, managing databases, and ensuring smooth functionality and user experience.",
-      achievements: [
-        "Optimized Web Performance",
-        "Database Efficiency",
-        "Code Quality & Maintainability",
-      ],
-    },
-  ];
+  const { ref, isVisible } = useSectionReveal<HTMLElement>();
 
   return (
-    <section
-      id="experience"
-      ref={sectionRef}
-      className="min-h-screen py-20 px-4"
-    >
+    <section id="experience" ref={ref} className="min-h-screen py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <h2
-          className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
-          Work <span className="gradient-text">Experience</span>
-        </h2>
+        <div className="mb-16">
+          <SectionHeading title="Work" accent="Experience" isVisible={isVisible} />
+        </div>
 
         <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className={`scroll-reveal ${
-                isVisible ? "revealed" : ""
-              } glass-card p-8 rounded-2xl hover:glow-primary transition-all duration-300`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
-              <div className="flex flex-col md:flex-row md:items-start gap-6">
-                <div className="glass-card p-4 rounded-xl glow-primary">
-                  <Briefcase size={32} className="text-primary" />
-                </div>
+          {experienceItems.map((experience, index) => {
+            const Icon = experience.icon;
+            const MetaIcon = experience.metaIcon;
 
-                <div className="flex-1">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-2xl font-bold">{exp.role}</h3>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar size={16} />
-                      <span className="text-sm">{exp.duration}</span>
-                    </div>
+            return (
+              <div
+                key={`${experience.role}-${experience.company}`}
+                className={`rounded-2xl p-8 transition-all duration-300 hover:glow-primary glass-card ${
+                  isVisible ? "scroll-reveal revealed" : "scroll-reveal"
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
+                <div className="flex flex-col gap-6 md:flex-row md:items-start">
+                  <div className="rounded-xl p-4 glow-primary glass-card">
+                    <Icon size={32} className="text-primary" />
                   </div>
 
-                  <p className="text-primary font-semibold mb-4">
-                    {exp.company}
-                  </p>
-                  <p className="text-foreground/80 mb-4">{exp.description}</p>
+                  <div className="flex-1">
+                    <div className="mb-2 flex flex-col md:flex-row md:items-center md:justify-between">
+                      <h3 className="text-2xl font-bold">{experience.role}</h3>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <MetaIcon size={16} />
+                        <span className="text-sm">{experience.duration}</span>
+                      </div>
+                    </div>
 
-                  <div className="space-y-2">
-                    <p className="font-semibold text-sm text-muted-foreground">
-                      Key Achievements:
+                    <p className="mb-4 font-semibold text-primary">
+                      {experience.company}
                     </p>
-                    <ul className="space-y-1">
-                      {exp.achievements.map((achievement, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="text-primary mt-1">▹</span>
-                          <span className="text-sm text-foreground/80">
-                            {achievement}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="mb-4 text-foreground/80">
+                      {experience.description}
+                    </p>
+
+                    <div className="space-y-2">
+                      <p className="text-sm font-semibold text-muted-foreground">
+                        Key Achievements:
+                      </p>
+                      <ul className="space-y-1">
+                        {experience.achievements.map((achievement) => (
+                          <li key={achievement} className="flex items-start gap-2">
+                            <span className="mt-1 text-primary">-</span>
+                            <span className="text-sm text-foreground/80">
+                              {achievement}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

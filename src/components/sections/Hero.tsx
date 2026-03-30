@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { Download, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const professions = [
+  "Full Stack Developer",
+  "UI/UX Designer",
+  "Tech Enthusiast",
+];
+
 const Hero = () => {
-  const professions = [
-    "Full Stack Developer",
-    "UI/UX Designer",
-    "Tech Enthusiast",
-  ];
   const [currentProfession, setCurrentProfession] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -32,7 +33,7 @@ const Hero = () => {
     }, typingSpeed);
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentProfession, professions]);
+  }, [displayText, isDeleting, currentProfession]);
 
   return (
     <section
@@ -65,15 +66,18 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">
-              <a
-                href="/cv/Aseel_fullstack_fresher.pdf"
-                download="Mohmd_Aseel_py.pdf"
+              <Button
+                asChild
+                className="bg-gradient-primary glow-primary transition-transform hover:scale-105"
               >
-                <Button className="bg-gradient-primary glow-primary hover:scale-105 transition-transform flex items-center">
+                <a
+                  href="/cv/Aseel_fullstack_fresher.pdf"
+                  download="Mohmd_Aseel_py.pdf"
+                >
                   <Download className="mr-2" size={20} />
                   Download CV
-                </Button>
-              </a>
+                </a>
+              </Button>
 
               <div className="flex gap-3">
                 <a
@@ -81,6 +85,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card p-3 rounded-lg hover:glow-primary transition-all hover:scale-110"
+                  aria-label="Visit GitHub profile"
                 >
                   <Github size={24} />
                 </a>
@@ -89,6 +94,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card p-3 rounded-lg hover:glow-secondary transition-all hover:scale-110"
+                  aria-label="Visit LinkedIn profile"
                 >
                   <Linkedin size={24} />
                 </a>
@@ -97,6 +103,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card p-3 rounded-lg hover:glow-primary transition-all hover:scale-110"
+                  aria-label="Visit X profile"
                 >
                   <Twitter size={24} />
                 </a>
@@ -110,7 +117,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-30 animate-pulse"></div>
               <div className="relative w-full h-full glass-card p-2 rounded-full flex items-center justify-center">
                 <img
-                  src="../images/profile1.jpg"
+                  src="/images/profile1.jpg"
                   alt="R. Mohamed Aseel"
                   className="w-72 h-72 md:w-96 md:h-96 rounded-full object-cover"
                 />

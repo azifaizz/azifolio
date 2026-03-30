@@ -1,76 +1,42 @@
-import { useEffect, useRef, useState } from "react";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+import SectionHeading from "@/components/shared/SectionHeading";
+import { blogPosts } from "@/data/blogs";
+import { useSectionReveal } from "@/hooks/use-section-reveal";
 
 const Blogs = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const blogs = [
-    {
-      id: "distraction-blocker",
-      title: "Distraction Tracker for Work Environment",
-      excerpt:
-        "Stay focused like never before with a distraction blocker that yells at you when you stray.",
-      date: "08-08-2025",
-      readTime: "8 min read",
-      image: "/images/blog1.png",
-      tags: ["codetofun", "Web Development"],
-      link: "/blog/distraction-blocker", // link to BlogPost page
-    },
-  ];
+  const { ref, isVisible } = useSectionReveal<HTMLElement>();
 
   return (
-    <section id="blogs" ref={sectionRef} className="min-h-screen py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h2
-          className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
-            isVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
-          Latest <span className="gradient-text">Blog Posts</span>
-        </h2>
+    <section id="blogs" ref={ref} className="min-h-screen px-4 py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-16">
+          <SectionHeading title="Latest" accent="Blog Posts" isVisible={isVisible} />
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {blogs.map((blog, index) => (
+        <div className="grid gap-8 md:grid-cols-2">
+          {blogPosts.map((blog, index) => (
             <div
-              key={index}
-              className={`scroll-reveal ${
-                isVisible ? "revealed" : ""
-              } glass-card rounded-2xl overflow-hidden hover:glow-primary transition-all duration-300 hover:scale-105`}
+              key={blog.id}
+              className={`overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105 hover:glow-primary glass-card ${
+                isVisible ? "scroll-reveal revealed" : "scroll-reveal"
+              }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="relative overflow-hidden group">
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-70" />
               </div>
 
               <div className="p-6">
-                <div className="flex items-center gap-4 mb-3 text-sm text-muted-foreground">
+                <div className="mb-3 flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Calendar size={14} />
-                    <span>{new Date(blog.date).toLocaleDateString()}</span>
+                    <span>{blog.dateLabel}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock size={14} />
@@ -78,35 +44,30 @@ const Blogs = () => {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold mb-3">{blog.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {blog.excerpt}
-                </p>
+                <h3 className="mb-3 text-xl font-bold">{blog.title}</h3>
+                <p className="mb-4 text-sm text-muted-foreground">{blog.excerpt}</p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="mb-4 flex flex-wrap gap-2">
                   {blog.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="glass-card px-3 py-1 text-xs rounded-full text-secondary"
+                      className="rounded-full px-3 py-1 text-xs text-secondary glass-card"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Updated Link */}
-                <a href={blog.link}>
-                  <a
-                    href={blog.link}
-                    className="w-full inline-flex items-center justify-center bg-gradient-primary hover:glow-primary group px-4 py-2 rounded-lg text-white font-semibold transition"
-                  >
-                    Read More
-                    <ArrowRight
-                      size={16}
-                      className="ml-2 group-hover:translate-x-1 transition-transform"
-                    />
-                  </a>
-                </a>
+                <Link
+                  to={`/blog/${blog.id}`}
+                  className="group inline-flex w-full items-center justify-center rounded-lg bg-gradient-primary px-4 py-2 font-semibold text-white transition hover:glow-primary"
+                >
+                  Read More
+                  <ArrowRight
+                    size={16}
+                    className="ml-2 transition-transform group-hover:translate-x-1"
+                  />
+                </Link>
               </div>
             </div>
           ))}
