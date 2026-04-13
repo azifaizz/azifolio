@@ -57,7 +57,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between gap-4">
           <Link
             to="/"
-            className="text-xl font-bold tracking-[0.2em] uppercase gradient-text sm:text-2xl"
+            className="brand-mark text-2xl uppercase tracking-[0.28em] text-foreground sm:text-3xl"
           >
             azifolio
           </Link>
@@ -91,16 +91,16 @@ const Navbar = () => {
         {isOpen && (
           <div className="glass-card animate-fade-in-up mt-4 rounded-2xl border border-white/10 p-5 md:hidden">
             <div className="space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block rounded-xl px-4 py-3 text-base font-medium text-foreground/80 transition-colors duration-300 hover:bg-white/5 hover:text-primary"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block rounded-xl px-4 py-3 text-base font-medium text-foreground/80 transition-colors duration-300 hover:bg-white/5 hover:text-primary"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ))}
             </div>
           </div>
         )}

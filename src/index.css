@@ -127,6 +127,11 @@ All colors MUST be HSL.
     background-clip: text;
   }
 
+  .brand-mark {
+    font-family: "Cormorant Garamond", "Garamond", "Times New Roman", serif;
+    letter-spacing: 0.28em;
+  }
+
   /* Animations */
   @keyframes fade-in-up {
     from {
