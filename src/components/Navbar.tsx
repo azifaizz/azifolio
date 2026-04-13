@@ -57,7 +57,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between gap-4">
           <Link
             to="/"
-            className="brand-mark text-2xl uppercase tracking-[0.28em] text-foreground sm:text-3xl"
+            className="gradient-text text-2xl font-semibold tracking-normal lowercase sm:text-3xl"
           >
             azifolio
           </Link>
