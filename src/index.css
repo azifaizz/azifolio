@@ -72,17 +72,31 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   body {
     @apply bg-background text-foreground font-['Poppins',sans-serif] overflow-x-hidden;
+    min-height: 100vh;
     background: linear-gradient(
       180deg,
       hsl(240 10% 6%) 0%,
       hsl(240 15% 10%) 100%
     );
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
   }
 }
 
@@ -208,6 +222,26 @@ All colors MUST be HSL.
     opacity: 1;
     transform: translateY(0);
   }
+
+  .section-shell {
+    @apply px-4 py-16 sm:px-6 sm:py-20 lg:px-8;
+  }
+
+  .section-shell-tight {
+    @apply px-4 py-12 sm:px-6 sm:py-16 lg:px-8;
+  }
+
+  .content-shell {
+    @apply mx-auto w-full max-w-7xl;
+  }
+
+  .interactive-card {
+    @apply transition-all duration-300 will-change-transform;
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-6px);
+  }
 }
 /* 💜 Stylish Violet & White Scrollbar Theme */
 ::-webkit-scrollbar {
@@ -230,4 +264,29 @@ All colors MUST be HSL.
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #ffffff, #b388ff);
   box-shadow: 0 0 10px rgba(200, 160, 255, 0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-reveal,
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: none;
+  }
+
+  .interactive-card:hover {
+    transform: none;
+  }
 }

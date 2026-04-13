@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
-import { certifications } from "@/data/portfolio-content";
+import { certifications } from "@/data/certifications";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 
 const Certifications = () => {

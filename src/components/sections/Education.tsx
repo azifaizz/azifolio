@@ -1,5 +1,5 @@
 import SectionHeading from "@/components/shared/SectionHeading";
-import { educationTimeline } from "@/data/portfolio-content";
+import { educationTimeline } from "@/data/education";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 
 const Education = () => {

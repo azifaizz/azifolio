@@ -1,5 +1,5 @@
 import SectionHeading from "@/components/shared/SectionHeading";
-import { experienceItems } from "@/data/portfolio-content";
+import { experienceItems } from "@/data/experience";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 
 const Experience = () => {

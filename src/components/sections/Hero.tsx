@@ -12,8 +12,26 @@ const Hero = () => {
   const [currentProfession, setCurrentProfession] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handleChange = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event.matches);
+    };
+
+    setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setDisplayText(professions[currentProfession]);
+      return;
+    }
+
     const profession = professions[currentProfession];
     const typingSpeed = isDeleting ? 50 : 100;
 
@@ -33,29 +51,37 @@ const Hero = () => {
     }, typingSpeed);
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentProfession]);
+  }, [currentProfession, displayText, isDeleting, prefersReducedMotion]);
 
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center px-4 pt-20"
+      className="section-shell flex min-h-screen items-center justify-center pt-24 sm:pt-28"
     >
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+      <div className="content-shell">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           {/* Left Side - Text Content */}
-          <div className="space-y-4 md:space-y-6 animate-fade-in-left">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">
+          <div className="animate-fade-in-left space-y-5 text-center md:space-y-6 lg:text-left">
+            <div className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium uppercase tracking-[0.28em] text-foreground/70 lg:justify-start">
+              Front-End Developer
+            </div>
+
+            <h1 className="text-balance text-4xl font-bold leading-tight sm:text-5xl md:text-6xl xl:text-7xl">
               R. Mohamed <span className="gradient-text">Aseel</span>
             </h1>
 
-            <div className="h-12 flex items-center">
-              <h2 className="text-xl sm:text-2xl md:text-3xl text-primary font-semibold">
+            <div className="flex h-12 items-center justify-center lg:justify-start">
+              <h2 className="text-xl font-semibold text-primary sm:text-2xl md:text-3xl">
                 {displayText}
-                <span className="inline-block w-1 h-6 ml-1 bg-primary animate-pulse"></span>
+                <span
+                  className={`ml-1 inline-block h-6 w-1 bg-primary ${
+                    prefersReducedMotion ? "" : "animate-pulse"
+                  }`}
+                ></span>
               </h2>
             </div>
 
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl text-justify leading-relaxed">
+            <p className="mx-auto max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg lg:mx-0">
               I am a Front-End Developer passionate about creating beautiful and
               responsive web interfaces. Skilled in HTML, CSS, JavaScript, and
               Bootstrap, I turn designs into fully functional websites. I focus
@@ -65,10 +91,10 @@ const Hero = () => {
               efficient, and visually appealing web solutions.
             </p>
 
-            <div className="flex flex-wrap gap-4 items-center">
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
               <Button
                 asChild
-                className="bg-gradient-primary glow-primary transition-transform hover:scale-105"
+                className="w-full bg-gradient-primary px-6 py-6 text-base shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5 hover:scale-[1.02] sm:w-auto"
               >
                 <a
                   href="/cv/Aseel_fullstack_fresher.pdf"
@@ -79,12 +105,12 @@ const Hero = () => {
                 </a>
               </Button>
 
-              <div className="flex gap-3">
+              <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
                 <a
                   href="https://github.com/azifaizz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-card p-3 rounded-lg hover:glow-primary transition-all hover:scale-110"
+                  className="interactive-card glass-card rounded-xl p-3 hover:glow-primary hover:-translate-y-1"
                   aria-label="Visit GitHub profile"
                 >
                   <Github size={24} />
@@ -93,7 +119,7 @@ const Hero = () => {
                   href="https://www.linkedin.com/in/azifaizz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-card p-3 rounded-lg hover:glow-secondary transition-all hover:scale-110"
+                  className="interactive-card glass-card rounded-xl p-3 hover:glow-secondary hover:-translate-y-1"
                   aria-label="Visit LinkedIn profile"
                 >
                   <Linkedin size={24} />
@@ -102,7 +128,7 @@ const Hero = () => {
                   href="https://x.com/azifaizz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-card p-3 rounded-lg hover:glow-primary transition-all hover:scale-110"
+                  className="interactive-card glass-card rounded-xl p-3 hover:glow-primary hover:-translate-y-1"
                   aria-label="Visit X profile"
                 >
                   <Twitter size={24} />
@@ -112,14 +138,20 @@ const Hero = () => {
           </div>
 
           {/* Right Side - Profile Picture */}
-          <div className="flex justify-center animate-fade-in-right">
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
-              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-30 animate-pulse"></div>
-              <div className="relative w-full h-full glass-card p-2 rounded-full flex items-center justify-center">
+          <div className="animate-fade-in-right order-first flex justify-center lg:order-none">
+            <div className="relative h-72 w-72 sm:h-80 sm:w-80 lg:h-[26rem] lg:w-[26rem]">
+              <div
+                className={`absolute inset-0 rounded-full bg-[image:var(--gradient-primary)] blur-3xl opacity-30 ${
+                  prefersReducedMotion ? "" : "animate-pulse"
+                }`}
+              ></div>
+              <div className="glass-card relative flex h-full w-full items-center justify-center rounded-full p-2 sm:p-3">
                 <img
                   src="/images/profile1.jpg"
                   alt="R. Mohamed Aseel"
-                  className="w-72 h-72 md:w-96 md:h-96 rounded-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                  className="h-full w-full rounded-full object-cover object-top"
                 />
               </div>
             </div>

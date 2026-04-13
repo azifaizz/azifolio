@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import SectionHeading from "@/components/shared/SectionHeading";
-import { contactInfo, socialLinks } from "@/data/portfolio-content";
+import { contactInfo, socialLinks } from "@/data/contact";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "emailjs-com";
@@ -56,13 +56,13 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" ref={ref} className="min-h-screen px-4 py-20">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-16">
+    <section id="contact" ref={ref} className="section-shell min-h-screen">
+      <div className="content-shell">
+        <div className="mb-12 sm:mb-16">
           <SectionHeading title="Get In" accent="Touch" isVisible={isVisible} />
         </div>
 
-        <div className="grid gap-12 md:grid-cols-2">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
           <div className={isVisible ? "scroll-reveal revealed space-y-8" : "scroll-reveal space-y-8"}>
             <div>
               <h3 className="mb-6 text-2xl font-bold">Let's Connect</h3>
@@ -80,7 +80,7 @@ const Contact = () => {
                   <a
                     key={info.text}
                     href={info.href}
-                    className="flex items-center gap-4 rounded-xl p-4 transition-all duration-300 hover:scale-105 hover:glow-primary glass-card"
+                    className="interactive-card glass-card flex items-center gap-4 rounded-xl p-4 hover:glow-primary"
                   >
                     <div className="rounded-lg p-3 glow-primary glass-card">
                       <Icon size={20} className="text-primary" />
@@ -103,7 +103,7 @@ const Contact = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-xl p-4 transition-all duration-300 hover:scale-110 hover:glow-primary glass-card"
+                      className="interactive-card glass-card rounded-xl p-4 hover:glow-primary"
                       aria-label={social.label}
                     >
                       <Icon size={20} />
@@ -121,7 +121,7 @@ const Contact = () => {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="space-y-6 rounded-2xl p-8 glass-card"
+              className="glass-card space-y-6 rounded-2xl p-5 sm:p-6 lg:p-8"
             >
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-medium">

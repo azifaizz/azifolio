@@ -1,76 +1,11 @@
 import { useEffect, useState } from "react";
-import {
-  ArrowLeft,
-  Calendar,
-  Code,
-  ExternalLink,
-  Github,
-  Users,
-  X,
-} from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getProjectById, type ProjectItem } from "@/data/projects";
+import ProjectGallery from "@/components/project/ProjectGallery";
+import ProjectMeta from "@/components/project/ProjectMeta";
+import ProjectPanel from "@/components/project/ProjectPanel";
+import { getProjectById } from "@/data/projects";
 import { useNavigate, useParams } from "react-router-dom";
-
-const ProjectPanel = ({
-  title,
-  children,
-  delay,
-}: {
-  title: string;
-  children: React.ReactNode;
-  delay?: string;
-}) => (
-  <section
-    className="mb-8 rounded-2xl p-8 glass-card animate-fade-in-up"
-    style={delay ? { animationDelay: delay } : undefined}
-  >
-    <h2 className="mb-6 text-2xl font-bold gradient-text">{title}</h2>
-    {children}
-  </section>
-);
-
-const ProjectMeta = ({ project }: { project: ProjectItem }) => (
-  <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-    <div className="flex items-center gap-2">
-      <Calendar size={20} className="text-primary" />
-      <span className="text-sm">{project.date}</span>
-    </div>
-    <div className="flex items-center gap-2">
-      <Users size={20} className="text-secondary" />
-      <span className="text-sm">{project.team}</span>
-    </div>
-    <div className="flex items-center gap-2">
-      <Code size={20} className="text-accent" />
-      <span className="text-sm">{project.role}</span>
-    </div>
-  </div>
-);
-
-const ProjectGallery = ({
-  screenshots,
-  onSelect,
-}: {
-  screenshots: string[];
-  onSelect: (image: string) => void;
-}) => (
-  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-    {screenshots.map((screenshot, index) => (
-      <button
-        key={`${screenshot}-${index}`}
-        type="button"
-        className="cursor-pointer overflow-hidden rounded-2xl transition-all hover:scale-105 glass-card hover:glow-primary"
-        onClick={() => onSelect(screenshot)}
-      >
-        <img
-          src={screenshot}
-          alt={`Project screenshot ${index + 1}`}
-          className="h-64 w-full object-cover"
-        />
-      </button>
-    ))}
-  </div>
-);
 
 const ProjectDetail = () => {
   const { id } = useParams();

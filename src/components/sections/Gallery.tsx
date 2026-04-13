@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ZoomIn } from "lucide-react";
 import ImageLightbox from "@/components/shared/ImageLightbox";
 import SectionHeading from "@/components/shared/SectionHeading";
-import { galleryItems } from "@/data/portfolio-content";
+import { galleryItems } from "@/data/gallery";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 
 const Gallery = () => {
@@ -11,18 +11,18 @@ const Gallery = () => {
   const activeImage = galleryItems.find((image) => image.url === selectedImage);
 
   return (
-    <section id="gallery" ref={ref} className="relative min-h-screen px-4 py-20">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
+    <section id="gallery" ref={ref} className="section-shell relative min-h-screen">
+      <div className="content-shell">
+        <div className="mb-12 sm:mb-16">
           <SectionHeading title="My" accent="Gallery" isVisible={isVisible} />
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {galleryItems.map((image, index) => (
             <button
               key={image.url}
               type="button"
-              className={`relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105 hover:glow-primary glass-card group ${
+              className={`interactive-card glass-card group relative overflow-hidden rounded-2xl hover:glow-primary ${
                 isVisible ? "scroll-reveal revealed" : "scroll-reveal"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
@@ -32,7 +32,9 @@ const Gallery = () => {
                 <img
                   src={image.url}
                   alt={image.title}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-80">
                   <div className="text-center">

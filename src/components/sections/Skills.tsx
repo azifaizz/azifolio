@@ -1,10 +1,7 @@
 import { useEffect, useRef } from "react";
 import SectionHeading from "@/components/shared/SectionHeading";
-import {
-  skillGroups,
-  type SkillCategoryKey,
-  type SkillItem,
-} from "@/data/portfolio-content";
+import { skillGroups } from "@/data/skills";
+import type { SkillCategoryKey, SkillItem } from "@/data/portfolio-types";
 
 const Skills = () => {
   const hardRef = useRef<HTMLDivElement>(null);

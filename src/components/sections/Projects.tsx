@@ -10,17 +10,17 @@ const Projects = () => {
   const { ref, isVisible } = useSectionReveal<HTMLElement>();
 
   return (
-    <section id="projects" ref={ref} className="min-h-screen px-4 py-20">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-16">
+    <section id="projects" ref={ref} className="section-shell min-h-screen">
+      <div className="content-shell">
+        <div className="mb-12 sm:mb-16">
           <SectionHeading title="Featured" accent="Projects" isVisible={isVisible} />
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={`overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105 hover:glow-primary glass-card ${
+              className={`interactive-card glass-card overflow-hidden rounded-2xl hover:glow-primary ${
                 isVisible ? "scroll-reveal revealed" : "scroll-reveal"
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
@@ -29,14 +29,16 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-70" />
               </div>
 
-              <div className="p-6">
+              <div className="p-5 sm:p-6">
                 <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
-                <p className="mb-4 text-sm text-justify text-muted-foreground">
+                <p className="mb-4 text-sm leading-6 text-muted-foreground">
                   {project.description}
                 </p>
 
@@ -51,7 +53,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex flex-col gap-3 sm:flex-row">
                   <Button
                     onClick={() => navigate(`/project/${project.id}`)}
                     className="flex-1 bg-gradient-primary hover:glow-primary"
