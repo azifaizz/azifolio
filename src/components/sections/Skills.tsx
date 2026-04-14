@@ -2,12 +2,39 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import { skillGroups } from "@/data/skills";
 import type { SkillGroup } from "@/data/portfolio-types";
 
-const accentGlowClass: Record<SkillGroup["key"], string> = {
-  frontend: "glow-primary text-primary",
-  backend: "glow-secondary text-secondary",
-  databases: "glow-primary text-primary",
-  tools: "glow-secondary text-secondary",
-  soft: "glow-primary text-primary",
+const groupStyles: Record<
+  SkillGroup["key"],
+  {
+    titleClass: string;
+    iconClass: string;
+    borderClass: string;
+  }
+> = {
+  frontend: {
+    titleClass: "text-primary",
+    iconClass: "text-primary glow-primary",
+    borderClass: "border-primary/15",
+  },
+  backend: {
+    titleClass: "text-secondary",
+    iconClass: "text-secondary glow-secondary",
+    borderClass: "border-secondary/15",
+  },
+  databases: {
+    titleClass: "text-primary",
+    iconClass: "text-primary glow-primary",
+    borderClass: "border-primary/15",
+  },
+  tools: {
+    titleClass: "text-secondary",
+    iconClass: "text-secondary glow-secondary",
+    borderClass: "border-secondary/15",
+  },
+  soft: {
+    titleClass: "text-primary",
+    iconClass: "text-primary glow-primary",
+    borderClass: "border-primary/15",
+  },
 };
 
 const Skills = () => {
@@ -18,36 +45,45 @@ const Skills = () => {
           <SectionHeading title="My" accent="Skills" />
         </div>
 
-        <div className="space-y-8">
-          {skillGroups.map((group) => (
-            <div key={group.key} className="glass-card rounded-3xl p-5 sm:p-6">
-              <h3 className={`mb-5 text-xl font-bold sm:text-2xl ${group.accentClass}`}>
-                {group.title}
-              </h3>
+        <div className="space-y-6">
+          {skillGroups.map((group) => {
+            const styles = groupStyles[group.key];
 
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {group.items.map((skill) => {
-                  const Icon = skill.icon;
+            return (
+              <div
+                key={group.key}
+                className={`glass-card rounded-[1.75rem] border p-5 sm:p-6 ${styles.borderClass}`}
+              >
+                <div className="mb-5 border-b border-white/10 pb-4">
+                  <h3 className={`text-xl font-bold sm:text-2xl ${styles.titleClass}`}>
+                    {group.title}
+                  </h3>
+                </div>
 
-                  return (
-                    <div
-                      key={`${group.key}-${skill.name}`}
-                      className="glass-card flex items-center gap-4 rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1"
-                    >
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {group.items.map((skill) => {
+                    const Icon = skill.icon;
+
+                    return (
                       <div
-                        className={`rounded-xl p-3 glass-card ${accentGlowClass[group.key]}`}
+                        key={`${group.key}-${skill.name}`}
+                        className="glass-card flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07]"
                       >
-                        <Icon size={22} />
+                        <div
+                          className={`glass-card flex h-12 w-12 items-center justify-center rounded-2xl ${styles.iconClass}`}
+                        >
+                          <Icon size={22} />
+                        </div>
+                        <h4 className="text-sm font-semibold text-foreground sm:text-base">
+                          {skill.name}
+                        </h4>
                       </div>
-                      <h4 className="text-sm font-semibold text-foreground sm:text-base">
-                        {skill.name}
-                      </h4>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
