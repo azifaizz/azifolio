@@ -11,7 +11,7 @@ const Gallery = () => {
   const activeImage = galleryItems.find((image) => image.url === selectedImage);
 
   return (
-    <section id="gallery" ref={ref} className="section-shell relative min-h-screen">
+    <section id="gallery" ref={ref} className="section-shell relative">
       <div className="content-shell">
         <div className="mb-12 sm:mb-16">
           <SectionHeading title="My" accent="Gallery" isVisible={isVisible} />

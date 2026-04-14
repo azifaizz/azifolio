@@ -56,7 +56,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" ref={ref} className="section-shell min-h-screen">
+    <section id="contact" ref={ref} className="section-shell">
       <div className="content-shell">
         <div className="mb-12 sm:mb-16">
           <SectionHeading title="Get In" accent="Touch" isVisible={isVisible} />

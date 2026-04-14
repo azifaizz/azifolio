@@ -6,7 +6,7 @@ const Experience = () => {
   const { ref, isVisible } = useSectionReveal<HTMLElement>();
 
   return (
-    <section id="experience" ref={ref} className="min-h-screen py-20 px-4">
+    <section id="experience" ref={ref} className="section-shell">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <SectionHeading title="Work" accent="Experience" isVisible={isVisible} />

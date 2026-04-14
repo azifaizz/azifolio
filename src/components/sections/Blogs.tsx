@@ -8,7 +8,7 @@ const Blogs = () => {
   const { ref, isVisible } = useSectionReveal<HTMLElement>();
 
   return (
-    <section id="blogs" ref={ref} className="min-h-screen px-4 py-20">
+    <section id="blogs" ref={ref} className="section-shell">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16">
           <SectionHeading title="Latest" accent="Blog Posts" isVisible={isVisible} />

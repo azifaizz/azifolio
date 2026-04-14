@@ -1,7 +1,6 @@
 import {
   BookPlus,
   Brain,
-  BrainCircuit,
   Braces,
   Brackets,
   Bug,
@@ -31,27 +30,55 @@ import type { SkillGroup } from "@/data/portfolio-types";
 
 export const skillGroups: readonly SkillGroup[] = [
   {
-    key: "hard",
-    title: "Technical Skills",
+    key: "frontend",
+    title: "Frontend Skills",
     accentClass: "text-primary",
     items: [
       { icon: FileCode, name: "HTML5" },
-      { icon: Palette, name: "CSS" },
+      { icon: Palette, name: "CSS3" },
       { icon: FileCog, name: "Tailwind CSS" },
       { icon: Eclipse, name: "Bootstrap" },
-      { icon: Database, name: "MySQL Database" },
       { icon: Code, name: "JavaScript (Basics)" },
-      { icon: FileCode, name: "Java" },
-      { icon: Braces, name: "Python" },
-      { icon: BrainCircuit, name: "Deep Learning Basics" },
-      { icon: FolderGit2, name: "Version Control & CLI" },
       { icon: Layout, name: "UI/UX Design" },
+    ],
+  },
+  {
+    key: "backend",
+    title: "Backend Skills",
+    accentClass: "text-secondary",
+    items: [
+      { icon: Braces, name: "Python" },
+      { icon: FileCode, name: "Java" },
+    ],
+  },
+  {
+    key: "databases",
+    title: "Databases",
+    accentClass: "text-primary",
+    items: [{ icon: Database, name: "MySQL" }],
+  },
+  {
+    key: "tools",
+    title: "Tools",
+    accentClass: "text-secondary",
+    items: [
+      { icon: Bug, name: "Visual Studio Code" },
+      { icon: Brackets, name: "Jupyter Notebook" },
+      { icon: Component, name: "PyCharm" },
+      { icon: Bug, name: "Eclipse IDE" },
+      { icon: FolderGit, name: "Git" },
+      { icon: FolderGit2, name: "Version Control & CLI" },
+      { icon: FileBox, name: "Hugging Face" },
+      { icon: PencilRuler, name: "Adobe Photoshop" },
+      { icon: Figma, name: "Figma" },
+      { icon: Framer, name: "Framer" },
+      { icon: Component, name: "Canva" },
     ],
   },
   {
     key: "soft",
     title: "Soft Skills",
-    accentClass: "text-secondary",
+    accentClass: "text-primary",
     items: [
       { icon: Users, name: "Team Collaboration" },
       { icon: Lightbulb, name: "Problem Solving" },
@@ -64,21 +91,4 @@ export const skillGroups: readonly SkillGroup[] = [
       { icon: BookPlus, name: "Learning Mindset" },
     ],
   },
-  {
-    key: "tools",
-    title: "Tools",
-    accentClass: "text-primary",
-    items: [
-      { icon: Bug, name: "Visual Studio Code" },
-      { icon: Brackets, name: "Jupyter Notebook" },
-      { icon: Component, name: "PyCharm" },
-      { icon: Bug, name: "Eclipse IDE" },
-      { icon: FolderGit, name: "Git" },
-      { icon: FileBox, name: "Hugging Face" },
-      { icon: PencilRuler, name: "Adobe Photoshop" },
-      { icon: Figma, name: "Figma" },
-      { icon: Framer, name: "Framer" },
-      { icon: Component, name: "Canva" },
-    ],
-  },
-];
+] as const;

@@ -10,7 +10,7 @@ const Projects = () => {
   const { ref, isVisible } = useSectionReveal<HTMLElement>();
 
   return (
-    <section id="projects" ref={ref} className="section-shell min-h-screen">
+    <section id="projects" ref={ref} className="section-shell">
       <div className="content-shell">
         <div className="mb-12 sm:mb-16">
           <SectionHeading title="Featured" accent="Projects" isVisible={isVisible} />

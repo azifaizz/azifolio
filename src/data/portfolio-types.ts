@@ -43,7 +43,12 @@ export type SocialLinkItem = Readonly<{
   label: string;
 }>;
 
-export type SkillCategoryKey = "hard" | "soft" | "tools";
+export type SkillCategoryKey =
+  | "frontend"
+  | "backend"
+  | "databases"
+  | "tools"
+  | "soft";
 
 export type SkillItem = Readonly<{
   icon: LucideIcon;

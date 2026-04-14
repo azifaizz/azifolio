@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { Download, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const professions = [
+  "Full Stack Developer",
+  "UI/UX Designer",
+  "Tech Enthusiast",
+] as const;
+
 const Hero = () => {
-  const professions = [
-    "Full Stack Developer",
-    "UI/UX Designer",
-    "Tech Enthusiast",
-  ];
   const [currentProfession, setCurrentProfession] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -32,7 +33,7 @@ const Hero = () => {
     }, typingSpeed);
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentProfession, professions]);
+  }, [displayText, isDeleting, currentProfession]);
 
   return (
     <section

@@ -14,7 +14,7 @@ const Certifications = () => {
     <section
       id="certifications"
       ref={ref}
-      className="relative min-h-screen overflow-hidden px-4 py-20"
+      className="section-shell relative overflow-hidden"
     >
       <div className="absolute inset-0 -z-10 h-full w-full bg-gradient-180" />
 
