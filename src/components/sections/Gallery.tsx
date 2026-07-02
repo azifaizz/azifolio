@@ -28,13 +28,13 @@ const Gallery = () => {
               style={{ transitionDelay: `${index * 100}ms` }}
               onClick={() => setSelectedImage(image.url)}
             >
-              <div className="relative aspect-[4/3] w-full cursor-pointer">
+              <div className="relative w-full cursor-pointer">
                 <img
                   src={image.url}
                   alt={image.title}
                   loading="lazy"
                   decoding="async"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-auto block object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-80">
                   <div className="text-center">

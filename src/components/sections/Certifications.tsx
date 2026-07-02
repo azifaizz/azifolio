@@ -44,7 +44,7 @@ const Certifications = () => {
               <img
                 src={certification.image}
                 alt={certification.title}
-                className="mb-4 h-48 w-full rounded-xl object-contain transition-transform duration-300 hover:scale-105 sm:h-52"
+                className="mb-4 w-full h-auto rounded-xl object-contain transition-transform duration-300 hover:scale-105"
               />
               <h2 className="mb-1 text-lg font-semibold text-foreground">
                 {certification.title}

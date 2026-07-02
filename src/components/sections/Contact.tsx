@@ -16,8 +16,94 @@ const emailJsConfig = {
 };
 
 const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { ref, isVisible } = useSectionReveal<HTMLElement>();
+
+  return (
+    <section id="contact" ref={ref} className="section-shell">
+      <div className="content-shell">
+        <div className="mb-12 sm:mb-16">
+          <SectionHeading title="Get In" accent="Touch" isVisible={isVisible} />
+        </div>
+
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
+          <div className={isVisible ? "scroll-reveal revealed space-y-8" : "scroll-reveal space-y-8"}>
+            <ContactDetails />
+          </div>
+
+          <div
+            className={isVisible ? "scroll-reveal revealed" : "scroll-reveal"}
+            style={{ transitionDelay: "200ms" }}
+          >
+            <ContactForm />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-20 text-center text-muted-foreground">
+        <p>
+          &copy; 2025 <span className="text-primary">R. Mohamed Aseel</span>. All
+          rights reserved.
+        </p>
+      </div>
+    </section>
+  );
+};
+
+function ContactDetails() {
+  return (
+    <>
+      <div>
+        <h3 className="mb-6 text-2xl font-bold">Let's Connect</h3>
+        <p className="mb-8 text-muted-foreground">
+          I'm always open to discussing new projects, creative ideas, or
+          opportunities to be part of your vision.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        {contactInfo.map((info) => {
+          const Icon = info.icon;
+          return (
+            <a
+              key={info.text}
+              href={info.href}
+              className="interactive-card glass-card flex items-center gap-4 rounded-xl p-4 hover:glow-primary"
+            >
+              <div className="rounded-lg p-3 glow-primary glass-card">
+                <Icon size={20} className="text-primary" />
+              </div>
+              <span>{info.text}</span>
+            </a>
+          );
+        })}
+      </div>
+
+      <div>
+        <h4 className="mb-4 text-lg font-semibold">Follow Me</h4>
+        <div className="flex gap-4">
+          {socialLinks.map((social) => {
+            const Icon = social.icon;
+            return (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="interactive-card glass-card rounded-xl p-4 hover:glow-primary"
+                aria-label={social.label}
+              >
+                <Icon size={20} />
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </>
+  );
+};
+
+function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
@@ -30,7 +116,6 @@ const Contact = () => {
 
     try {
       setIsSubmitting(true);
-
       await emailjs.sendForm(
         emailJsConfig.serviceId,
         emailJsConfig.templateId,
@@ -56,140 +141,64 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" ref={ref} className="section-shell">
-      <div className="content-shell">
-        <div className="mb-12 sm:mb-16">
-          <SectionHeading title="Get In" accent="Touch" isVisible={isVisible} />
-        </div>
-
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-          <div className={isVisible ? "scroll-reveal revealed space-y-8" : "scroll-reveal space-y-8"}>
-            <div>
-              <h3 className="mb-6 text-2xl font-bold">Let's Connect</h3>
-              <p className="mb-8 text-muted-foreground">
-                I'm always open to discussing new projects, creative ideas, or
-                opportunities to be part of your vision.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {contactInfo.map((info) => {
-                const Icon = info.icon;
-
-                return (
-                  <a
-                    key={info.text}
-                    href={info.href}
-                    className="interactive-card glass-card flex items-center gap-4 rounded-xl p-4 hover:glow-primary"
-                  >
-                    <div className="rounded-lg p-3 glow-primary glass-card">
-                      <Icon size={20} className="text-primary" />
-                    </div>
-                    <span>{info.text}</span>
-                  </a>
-                );
-              })}
-            </div>
-
-            <div>
-              <h4 className="mb-4 text-lg font-semibold">Follow Me</h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="interactive-card glass-card rounded-xl p-4 hover:glow-primary"
-                      aria-label={social.label}
-                    >
-                      <Icon size={20} />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          <div
-            className={isVisible ? "scroll-reveal revealed" : "scroll-reveal"}
-            style={{ transitionDelay: "200ms" }}
-          >
-            <form
-              ref={formRef}
-              onSubmit={handleSubmit}
-              className="glass-card space-y-6 rounded-2xl p-5 sm:p-6 lg:p-8"
-            >
-              <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-medium">
-                  Your Name
-                </label>
-                <Input
-                  id="name"
-                  name="user_name"
-                  placeholder="Your name"
-                  required
-                  className="border-primary/30 glass-card"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-medium">
-                  Email Address
-                </label>
-                <Input
-                  id="email"
-                  name="user_email"
-                  type="email"
-                  placeholder="your.email@example.com"
-                  required
-                  className="border-primary/30 glass-card"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="mb-2 block text-sm font-medium"
-                >
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  placeholder="Your message here..."
-                  rows={5}
-                  required
-                  className="resize-none border-primary/30 glass-card"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="group w-full bg-gradient-primary hover:glow-primary"
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-                <Send
-                  size={16}
-                  className="ml-2 transition-transform group-hover:translate-x-1"
-                />
-              </Button>
-            </form>
-          </div>
-        </div>
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className="glass-card space-y-6 rounded-2xl p-5 sm:p-6 lg:p-8"
+    >
+      <div>
+        <label htmlFor="name" className="mb-2 block text-sm font-medium">
+          Your Name
+        </label>
+        <Input
+          id="name"
+          name="user_name"
+          placeholder="Your name"
+          required
+          className="border-primary/30 glass-card"
+        />
       </div>
 
-      <div className="mt-20 text-center text-muted-foreground">
-        <p>
-          &copy; 2025 <span className="text-primary">R. Mohamed Aseel</span>. All
-          rights reserved.
-        </p>
+      <div>
+        <label htmlFor="email" className="mb-2 block text-sm font-medium">
+          Email Address
+        </label>
+        <Input
+          id="email"
+          name="user_email"
+          type="email"
+          placeholder="your.email@example.com"
+          required
+          className="border-primary/30 glass-card"
+        />
       </div>
-    </section>
+
+      <div>
+        <label htmlFor="message" className="mb-2 block text-sm font-medium">
+          Message
+        </label>
+        <Textarea
+          id="message"
+          name="message"
+          placeholder="Your message here..."
+          rows={5}
+          required
+          className="resize-none border-primary/30 glass-card"
+        />
+      </div>
+
+      <Button
+        type="submit"
+        disabled={isSubmitting}
+        className="group w-full bg-gradient-primary hover:glow-primary"
+      >
+        {isSubmitting ? "Sending..." : "Send Message"}
+        <Send
+          size={16}
+          className="ml-2 transition-transform group-hover:translate-x-1"
+        />
+      </Button>
+    </form>
   );
 };
 

@@ -2,6 +2,14 @@ import type { CertificationItem } from "@/data/portfolio-types";
 
 export const certifications: readonly CertificationItem[] = [
   {
+    title: "Fullstack Java Development Internship",
+    issuer: "White Track Technologies PVT LTD",
+    date: "March 2026",
+    image: "/images/WTT.png",
+    description:
+      "Successfully completed an intensive internship program in Fullstack Java Development, equipping valuable skills for future endeavors.",
+  },
+  {
     title:
       "Remaining Useful Life (RUL) Prediction for Batteries of Electric Vehicle",
     issuer: "St. Joseph's College (Arts & Science), Chennai",

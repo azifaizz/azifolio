@@ -27,7 +27,7 @@ const Blogs = () => {
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-70" />
               </div>

@@ -107,13 +107,13 @@ const Hero = () => {
 
           {/* Right Side - Profile Picture */}
           <div className="flex justify-center animate-fade-in-right">
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+            <div className="relative w-72 sm:w-80 md:w-96 aspect-square">
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-30 animate-pulse"></div>
               <div className="relative w-full h-full glass-card p-2 rounded-full flex items-center justify-center">
                 <img
                   src="../images/profile1.jpg"
                   alt="R. Mohamed Aseel"
-                  className="w-72 h-72 md:w-96 md:h-96 rounded-full object-cover"
+                  className="w-full h-full rounded-full object-cover"
                 />
               </div>
             </div>

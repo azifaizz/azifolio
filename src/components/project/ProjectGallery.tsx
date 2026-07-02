@@ -16,7 +16,7 @@ const ProjectGallery = ({ screenshots, onSelect }: ProjectGalleryProps) => {
           <img
             src={screenshot}
             alt={`Project screenshot ${index + 1}`}
-            className="h-64 w-full object-cover"
+            className="w-full h-auto object-cover"
           />
         </button>
       ))}
