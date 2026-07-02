@@ -27,12 +27,12 @@ const Certifications = () => {
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {certifications.map((certification, index) => (
             <button
               key={`${certification.title}-${certification.date}`}
               type="button"
-              className={`rounded-2xl p-4 text-left shadow-glow transition-all duration-300 hover:scale-105 hover:glow-primary glass-card ${
+              className={`flex flex-col items-start rounded-2xl p-4 text-left shadow-glow transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:glow-primary glass-card ${
                 isVisible ? "animate-fade-in-up" : "opacity-0"
               }`}
               style={{
@@ -41,18 +41,20 @@ const Certifications = () => {
               }}
               onClick={() => setSelectedCert(index)}
             >
-              <img
-                src={certification.image}
-                alt={certification.title}
-                className="mb-4 w-full h-auto rounded-xl object-contain transition-transform duration-300 hover:scale-105"
-              />
-              <h2 className="mb-1 text-lg font-semibold text-foreground">
+              <div className="mb-4 h-40 w-full overflow-hidden rounded-xl bg-black/5 flex items-center justify-center p-2">
+                <img
+                  src={certification.image}
+                  alt={certification.title}
+                  className="h-full w-full object-contain transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <h2 className="mb-1 text-base font-bold text-foreground line-clamp-1">
                 {certification.title}
               </h2>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm font-medium text-primary line-clamp-1">
                 {certification.issuer}
               </p>
-              <p className="text-sm text-muted-foreground">
+              <p className="mt-1 text-xs text-muted-foreground">
                 {certification.date}
               </p>
             </button>
