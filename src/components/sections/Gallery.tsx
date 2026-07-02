@@ -28,18 +28,18 @@ const Gallery = () => {
               style={{ transitionDelay: `${index * 100}ms` }}
               onClick={() => setSelectedImage(image.url)}
             >
-              <div className="relative w-full cursor-pointer">
+              <div className="relative w-full aspect-square cursor-pointer">
                 <img
                   src={image.url}
                   alt={image.title}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-auto block object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full block object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-80">
+                <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <div className="text-center">
-                    <ZoomIn size={32} className="mx-auto mb-2" />
-                    <p className="font-semibold text-white">{image.title}</p>
+                    <ZoomIn size={32} className="mx-auto mb-2 text-primary" />
+                    <p className="font-semibold text-white px-4">{image.title}</p>
                   </div>
                 </div>
               </div>
